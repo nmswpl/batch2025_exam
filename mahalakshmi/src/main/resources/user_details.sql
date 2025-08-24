@@ -130,7 +130,7 @@ insert into user_details (emp_id, name, gender, username, password, account_stat
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('72-8500174', 'Dody Luxford', 'Others', 'dluxford3d', 'gR0/{Hp<JFqlwxE', 'Suspended');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('83-1039305', 'Cornela Pheasey', 'Others', 'cpheasey3e', 'uH6~lwGz|BS(b/=0', 'Active');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('42-7605819', 'Elwyn Dinjes', 'Male', 'edinjes3f', 'tN9`amp45?Sq\Ps1', 'Inactive');
-insert into user_details (emp_id, name, gender, username, password, account_status) values ('38-3958808', 'Alis Rosenauer', 'Others', 'arosenauer3g', 'rN9<0mI\', 'Suspended');
+insert into user_details (emp_id, name, gender, username, password, account_status) values ('38-3958808', 'Alis Rosenauer', 'Others', 'arosenauer3g', 'rN9<0mI|', 'Suspended');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('38-6193065', 'Alida Longfellow', 'Others', 'alongfellow3h', 'hG8?}FUBJW>Bilo', 'Active');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('19-8507165', 'Avictor Fieldgate', 'Female', 'afieldgate3i', 'hV4>Vz?h<1"', 'Suspended');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('14-6732948', 'Bethany Wrightim', 'Others', 'bwrightim3j', 'mY3`a?q_q', 'Suspended');
@@ -163,7 +163,7 @@ insert into user_details (emp_id, name, gender, username, password, account_stat
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('01-4855564', 'Jenni Anersen', 'Others', 'janersen4a', 'dT4>EE_P', 'Suspended');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('03-1012011', 'Dominica Bownes', 'Male', 'dbownes4b', 'uA4"N=jla', 'Inactive');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('95-4385647', 'Adolphe Noraway', 'Female', 'anoraway4c', 'rN3$A1}zwlQ9', 'Suspended');
-insert into user_details (emp_id, name, gender, username, password, account_status) values ('08-0378983', 'Myrtie Coghlan', 'Male', 'mcoghlan4d', 'qO2$BJi`O1yB\', 'Suspended');
+insert into user_details (emp_id, name, gender, username, password, account_status) values ('08-0378983', 'Myrtie Coghlan', 'Male', 'mcoghlan4d', 'qO2$BJi`O1yB|', 'Suspended');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('53-0981412', 'Flint Dundendale', 'Male', 'fdundendale4e', 'pA5$JQ{TlUASBV&c', 'Inactive');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('23-4395705', 'Ivie Thomsson', 'Others', 'ithomsson4f', 'vX2}Et=Nk~KSg6', 'Inactive');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('30-8413990', 'Milzie MacLeese', 'Others', 'mmacleese4g', 'qN8!wPDJ62v', 'Active');
@@ -198,7 +198,7 @@ insert into user_details (emp_id, name, gender, username, password, account_stat
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('55-4176362', 'Clarita Render', 'Female', 'crender59', 'pY1`/W''&', 'Suspended');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('44-2752118', 'Nicolis Skipping', 'Female', 'nskipping5a', 'hF2=s/6eL_"{u', 'Suspended');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('88-4882326', 'Sinclare Cahen', 'Male', 'scahen5b', 'yC0?a<IY54', 'Suspended');
-insert into user_details (emp_id, name, gender, username, password, account_status) values ('06-5073042', 'Persis Forlong', 'Female', 'pforlong5c', 'gG6}IJ_\', 'Active');
+insert into user_details (emp_id, name, gender, username, password, account_status) values ('06-5073042', 'Persis Forlong', 'Female', 'pforlong5c', 'gG6}IJ_|', 'Active');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('66-5788913', 'Itch Farnes', 'Male', 'ifarnes5d', 'mN8_Bx}ve7=Giy', 'Suspended');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('11-4272193', 'Lauree Hillhouse', 'Male', 'lhillhouse5e', 'uW2(Ug%hxP', 'Inactive');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('04-4631611', 'Orton Crowder', 'Male', 'ocrowder5f', 'bL2?<fxd,rS', 'Inactive');
@@ -389,7 +389,7 @@ insert into user_details (emp_id, name, gender, username, password, account_stat
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('78-6560004', 'Trevar Cummungs', 'Female', 'tcummungsak', 'lD9#{dP3|U)V8?', 'Suspended');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('03-5479981', 'Arlyn Creddon', 'Others', 'acreddonal', 'kO7(8|?|?1|K', 'Active');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('93-8216362', 'Eveline Streather', 'Male', 'estreatheram', 'yK2\=Jyd})', 'Active');
-insert into user_details (emp_id, name, gender, username, password, account_status) values ('93-3819453', 'Arlina Jerger', 'Female', 'ajergeran', 'aE1%Rzd!qfCigg\', 'Suspended');
+insert into user_details (emp_id, name, gender, username, password, account_status) values ('93-3819453', 'Arlina Jerger', 'Female', 'ajergeran', 'aE1%Rzd!qfCigg|', 'Suspended');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('34-7649806', 'Bronny Henrionot', 'Female', 'bhenrionotao', 'lN8%qf#A', 'Active');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('13-2658927', 'Tressa Renals', 'Others', 'trenalsap', 'yE1_`.G>9', 'Active');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('12-0223482', 'Sue Sanpere', 'Others', 'ssanpereaq', 'dA0}ndGKZ=Ps', 'Inactive');
@@ -682,7 +682,7 @@ insert into user_details (emp_id, name, gender, username, password, account_stat
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('44-1107642', 'Belita Langmuir', 'Female', 'blangmuirip', 'sG1\,h<Vw56KEqCq', 'Inactive');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('46-1132299', 'Dayle O''Ruane', 'Female', 'doruaneiq', 'vQ2@>KE(P_"', 'Inactive');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('74-8652311', 'Shellie Docharty', 'Others', 'sdochartyir', 'hA9$1EtID', 'Active');
-insert into user_details (emp_id, name, gender, username, password, account_status) values ('60-8178778', 'Dimitri Shipley', 'Others', 'dshipleyis', 'lC2*p!&Y\*Rzcx\', 'Suspended');
+insert into user_details (emp_id, name, gender, username, password, account_status) values ('60-8178778', 'Dimitri Shipley', 'Others', 'dshipleyis', 'lC2*p!&Y\*Rzcx|', 'Suspended');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('01-0076225', 'Panchito Nabbs', 'Female', 'pnabbsit', 'bU0=~ltD', 'Inactive');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('65-6738858', 'Abran Loade', 'Male', 'aloadeiu', 'kX3"bS=e', 'Inactive');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('07-1909429', 'Kerstin Horwell', 'Others', 'khorwelliv', 'mV9@sp<&rL+?Tc', 'Inactive');
@@ -754,7 +754,7 @@ insert into user_details (emp_id, name, gender, username, password, account_stat
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('68-7317643', 'Martie Jaulme', 'Male', 'mjaulmekp', 'mV6)cOa~2Z', 'Suspended');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('99-6070495', 'Zelig Klassman', 'Male', 'zklassmankq', 'wA7$kfTw4', 'Active');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('11-3847098', 'Pietrek Bewlay', 'Others', 'pbewlaykr', 'dY2,(''|nsq$cW', 'Suspended');
-insert into user_details (emp_id, name, gender, username, password, account_status) values ('99-0580428', 'Nance Falk', 'Male', 'nfalkks', 'hE9@GL|p@0wM\', 'Suspended');
+insert into user_details (emp_id, name, gender, username, password, account_status) values ('99-0580428', 'Nance Falk', 'Male', 'nfalkks', 'hE9@GL|p@0wM|', 'Suspended');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('14-1508724', 'Tamqrah Sheards', 'Female', 'tsheardskt', 'rC0|y&3{tenars@', 'Suspended');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('67-6161728', 'Anastasie Guillard', 'Others', 'aguillardku', 'hR4)XtYZ', 'Inactive');
 insert into user_details (emp_id, name, gender, username, password, account_status) values ('26-3615900', 'Serge Kubal', 'Female', 'skubalkv', 'hX1(UcLI', 'Inactive');
