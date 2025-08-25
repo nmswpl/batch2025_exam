@@ -3,17 +3,17 @@ package in.co.nmsworks.Exam;
 public class LandShipping implements ShippingMethod{
     @Override
     public double getBasePrice() {
-        return 0;
+        return 500;
     }
 
     @Override
     public double getBaseWeight() {
-        return 0;
+        return 50;
     }
 
     @Override
     public double getBaseDistance() {
-        return 0;
+        return 150;
     }
 
     @Override

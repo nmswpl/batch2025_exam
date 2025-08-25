@@ -1,23 +1,33 @@
 package in.co.nmsworks.Exam;
 
 public class AirShipping implements ShippingMethod{
+
+   private int additionalCost;
+
+
     @Override
     public double getBasePrice() {
-        return 0;
+        return 500;
     }
 
     @Override
     public double getBaseWeight() {
-        return 0;
+        return 50;
     }
 
     @Override
     public double getBaseDistance() {
-        return 0;
+        return 150;
     }
 
     @Override
     public double additionalWeightCost(double weight) {
+
+        if(weight<getBaseWeight())
+        {
+            additionalCost=0;
+            return weight*getBasePrice()+additionalCost;
+        }
         return 0;
     }
 

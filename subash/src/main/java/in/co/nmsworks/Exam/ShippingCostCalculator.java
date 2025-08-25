@@ -13,7 +13,6 @@ public class ShippingCostCalculator
 
         Parcel pp = new Parcel();
 
-
         scc.calculateTotalCost(as,pp);
     }
 
