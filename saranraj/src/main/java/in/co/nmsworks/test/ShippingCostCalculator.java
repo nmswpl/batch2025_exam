@@ -21,6 +21,5 @@ public class ShippingCostCalculator {
         System.out.println("Calculate distance :" + distance);
         System.out.println("Calculate weight :" + weight);
 
-        System.out.println("Calculate :" + distance * weight);
     }
 }

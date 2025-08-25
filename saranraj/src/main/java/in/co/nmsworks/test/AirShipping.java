@@ -31,17 +31,17 @@ public class AirShipping implements ShippingMethod {
 
     @Override
     public double getBasePrice() {
-        return cost;
+        return 10;
     }
 
     @Override
     public double getBaseWeight() {
-        return weight;
+        return 2;
     }
 
     @Override
     public double getBaseDistance() {
-        return distance;
+        return 20;
     }
 
     @Override

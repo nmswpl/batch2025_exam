@@ -31,17 +31,17 @@ public class SeaShipping implements ShippingMethod {
 
     @Override
     public double getBasePrice() {
-        return 0;
+        return 30;
     }
 
     @Override
     public double getBaseWeight() {
-        return 0;
+        return 2;
     }
 
     @Override
     public double getBaseDistance() {
-        return 0;
+        return 30;
     }
 
     @Override

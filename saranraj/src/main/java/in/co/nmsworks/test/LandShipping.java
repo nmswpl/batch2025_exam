@@ -31,17 +31,17 @@ public class LandShipping implements ShippingMethod {
 
     @Override
     public double getBasePrice() {
-        return 0;
+        return 10;
     }
 
     @Override
     public double getBaseWeight() {
-        return 0;
+        return 20;
     }
 
     @Override
     public double getBaseDistance() {
-        return 0;
+        return 10;
     }
 
     @Override
