@@ -11,6 +11,12 @@ public class CompressString
         String result = compressString.getCompressedString(str);
 
         System.out.println(result);
+
+        str = "abbc";
+
+        result = compressString.getCompressedString(str);
+
+        System.out.println(result);
     }
 
     private String getCompressedString(String str)
