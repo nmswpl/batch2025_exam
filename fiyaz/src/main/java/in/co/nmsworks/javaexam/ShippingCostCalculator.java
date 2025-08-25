@@ -40,6 +40,5 @@ public class ShippingCostCalculator {
 
     void generateQuotation(Parcel parcel) {
 
-
     }
 }
