@@ -34,8 +34,6 @@ public class SalesInfo {
             ps.executeUpdate();
         } catch (Exception e){
             e.printStackTrace();
-        } finally {
-
-        }
+        } 
     }
 }
