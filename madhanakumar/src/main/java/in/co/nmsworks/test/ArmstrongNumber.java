@@ -11,7 +11,7 @@ public class ArmstrongNumber {
     private boolean isArmstrongNumber(int i) {
         int res = i;
         int temp = i;
-        double num = 0;
+        double num;
         int sum = 0;
         double count = 0;
         while (temp > 0){
