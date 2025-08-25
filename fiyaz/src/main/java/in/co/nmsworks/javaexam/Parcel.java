@@ -8,4 +8,5 @@ public class Parcel {
         this.weight = weight;
         this.distance = distance;
     }
+
 }
