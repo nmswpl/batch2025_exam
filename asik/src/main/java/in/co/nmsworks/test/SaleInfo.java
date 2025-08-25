@@ -11,7 +11,7 @@ import java.util.Map;
 public class SaleInfo
 {
     private List<SalesData> salesDataList = new ArrayList<>();
-    Map<String, Double[]> avgPrice = new HashMap<>();
+    private Map<String, Double[]> avgPrice = new HashMap<>();
 
     public static void main(String[] args)
     {
