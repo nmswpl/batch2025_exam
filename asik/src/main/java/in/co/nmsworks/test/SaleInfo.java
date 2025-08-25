@@ -19,22 +19,34 @@ public class SaleInfo
 
         saleInfo.readFromFile("/home/nms-training/git/batch2025_exam/asik/src/main/resources/SALES_DATA.csv");
 
-        //saleInfo.calculateAndPrintAvgPriceForEachCategory(saleInfo.salesDataList);
+        saleInfo.calculateAndPrintAvgPriceForEachCategory(saleInfo.salesDataList);
 
         saleInfo.findAndPrintHighestSoldProductInEachMonth(saleInfo.salesDataList);
     }
 
     private void findAndPrintHighestSoldProductInEachMonth(List<SalesData> salesDataList)
     {
-        Map<Integer, String> soldProductPerMonth = new HashMap<>();
+        Map<Integer, Double> soldProductPerMonth = new HashMap<>();
         for (SalesData salesData : salesDataList)
         {
             Integer month = Integer.parseInt(salesData.getSaleDate().split("-")[1]);
-            soldProductPerMonth.put(month, soldProductPerMonth.getOrDefault(month, "") + salesData.getName());
-
+            double soldPrice = salesData.getItemsSold() * salesData.getPrice();
+            if (soldProductPerMonth.containsKey(month))
+            {
+                if (soldProductPerMonth.get(month) < soldPrice)
+                {
+                    soldProductPerMonth.put(month, soldPrice);
+                }
+            }
+            else
+            {
+                soldProductPerMonth.put(month, soldPrice);
+            }
         }
-
-
+        for (Map.Entry<Integer, Double> entry : soldProductPerMonth.entrySet())
+        {
+            System.out.println("Month " + entry.getKey() + " , Highest Product Sold : " + entry.getValue());
+        }
     }
 
     private void calculateAndPrintAvgPriceForEachCategory(List<SalesData> salesDataList)
