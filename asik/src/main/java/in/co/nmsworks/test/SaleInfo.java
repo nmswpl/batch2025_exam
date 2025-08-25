@@ -26,24 +26,23 @@ public class SaleInfo
 
     private void findAndPrintHighestSoldProductInEachMonth(List<SalesData> salesDataList)
     {
-        Map<Integer, Double> soldProductPerMonth = new HashMap<>();
+        Map<Integer, SalesData> soldProductPerMonth = new HashMap<>();
         for (SalesData salesData : salesDataList)
         {
             Integer month = Integer.parseInt(salesData.getSaleDate().split("-")[1]);
-            double soldPrice = salesData.getItemsSold() * salesData.getPrice();
             if (soldProductPerMonth.containsKey(month))
             {
-                if (soldProductPerMonth.get(month) < soldPrice)
+                if ((soldProductPerMonth.get(month).getItemsSold() * soldProductPerMonth.get(month).getPrice())  < (salesData.getItemsSold()*salesData.getPrice()))
                 {
-                    soldProductPerMonth.put(month, soldPrice);
+                    soldProductPerMonth.put(month, salesData);
                 }
             }
             else
             {
-                soldProductPerMonth.put(month, soldPrice);
+                soldProductPerMonth.put(month, salesData);
             }
         }
-        for (Map.Entry<Integer, Double> entry : soldProductPerMonth.entrySet())
+        for (Map.Entry<Integer, SalesData> entry : soldProductPerMonth.entrySet())
         {
             System.out.println("Month " + entry.getKey() + " , Highest Product Sold : " + entry.getValue());
         }

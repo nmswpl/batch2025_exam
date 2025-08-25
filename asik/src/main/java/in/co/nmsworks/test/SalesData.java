@@ -81,4 +81,16 @@ public class SalesData
     {
         this.saleDate = saleDate;
     }
+
+    @Override
+    public String toString() {
+        return "SalesData{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", price=" + price +
+                ", itemsSold=" + itemsSold +
+                ", saleDate='" + saleDate + '\'' +
+                '}';
+    }
 }
