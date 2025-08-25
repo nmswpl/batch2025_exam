@@ -18,6 +18,20 @@ public class ArmstrongNumber
         {
             System.out.println(num + " Is Not An Armstrong Number");
         }
+
+        num = 9;
+
+        isArmstrongNumber = armstrongNumber.checkArmstrongNumber(num);
+
+        if (isArmstrongNumber)
+        {
+            System.out.println(num + " Is An Armstrong Number");
+        }
+        else
+        {
+            System.out.println(num + " Is Not An Armstrong Number");
+        }
+
     }
 
     private boolean checkArmstrongNumber(int num)
