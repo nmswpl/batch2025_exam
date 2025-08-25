@@ -9,7 +9,7 @@ public class ArmstrongNumber
 
         while (countOfArmstrongNumber < 7)
         {
-            if (findIsArmstrongNumber(123))
+            if (findIsArmstrongNumber(i))
             {
                 countOfArmstrongNumber++;
             }
