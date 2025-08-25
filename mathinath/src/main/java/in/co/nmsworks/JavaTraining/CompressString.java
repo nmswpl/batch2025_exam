@@ -24,7 +24,7 @@ public class CompressString {
                 map.put(str1[i],1);
             }
         }
-        String str =
+
 //        int acount = 0;
 //        int bcount = 0;
 //        int ccount = 0;

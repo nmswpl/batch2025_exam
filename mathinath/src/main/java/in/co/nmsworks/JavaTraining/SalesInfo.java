@@ -108,12 +108,12 @@ public class SalesInfo {
                 for (String s : arr) {
                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/training","nms-training","nms-training");
             PreparedStatement ps = con.prepareStatement("insert into salesinfo values(?,?,?,?,?,?)");
-            ps.setInt(1,salesInfo.getSales_id());
-            ps.setString(2,salesInfo.getProduct_name());
-            ps.setString(3,salesInfo.getCategory());
-            ps.setInt(4,salesInfo.getPrice());
-            ps.setInt(5,salesInfo.getItems_sold());
-            ps.setString(6,salesInfo.getSalesDate());
+            ps.setInt(1, Integer.parseInt(arr[0]));
+            ps.setString(2,arr[1]);
+            ps.setString(3,arr[2]);
+            ps.setInt(4, Integer.parseInt(arr[3]));
+            ps.setInt(5, Integer.parseInt(arr[4]));
+            ps.setString(6,arr[5]);
             SalesInfo salesInfo1 = new SalesInfo(salesInfo.sales_id, salesInfo.product_name,salesInfo.category,salesInfo.price,salesInfo.items_sold,salesInfo.salesDate);
             list.add(String.valueOf(salesInfo1));
             ps.executeUpdate();
