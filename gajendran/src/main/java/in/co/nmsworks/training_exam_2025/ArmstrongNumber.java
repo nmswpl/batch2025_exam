@@ -32,7 +32,6 @@ public class ArmstrongNumber
             int rem = temp % 10;
             temp /= 10;
             sum += Math.pow(rem,dig);
-            System.out.println(sum);
         }
 
         if (sum == i)
