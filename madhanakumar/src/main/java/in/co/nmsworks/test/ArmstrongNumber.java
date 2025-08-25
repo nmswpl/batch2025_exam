@@ -3,7 +3,7 @@ package in.co.nmsworks.test;
 public class ArmstrongNumber {
     public static void main(String[] args) {
         ArmstrongNumber armstrongNumber = new ArmstrongNumber();
-        for (int i = 1; i <= 999; i++) {
+        for (int i = 10; i <= 10000; i++) {
             armstrongNumber.isArmstrongNumber(i);
         }
     }
@@ -24,14 +24,11 @@ public class ArmstrongNumber {
             sum = (int) (sum + Math.pow(num,count));
             i = i / 10;
         }
-        System.out.println(sum);
+
         if(res == sum){
             System.out.println(res+" is an Armstrong Number..");
             return true;
         }
-        else {
-            System.out.println(res + " is not an Armstrong Number..");
-            return false;
-        }
+        return false;
     }
 }
