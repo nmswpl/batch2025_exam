@@ -28,6 +28,15 @@ public class AirShipping implements ShippingMethod{
             additionalCost=0;
             return weight*getBasePrice()+additionalCost;
         }
+        else if(weight>getBaseWeight())
+        {
+            double balanceWeight = weight-getBaseWeight();
+
+            if(balanceWeight>20)
+            {
+//                balanceWeight*balanceWeight;
+            }
+        }
         return 0;
     }
 
