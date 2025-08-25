@@ -23,10 +23,9 @@ public class CompressString {
             {
                 map.put(str1[i],1);
             }
-
         }
-        System.out.println(map);
 
+        System.out.println(map);
         return str;
     }
 }

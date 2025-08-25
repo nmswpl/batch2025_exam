@@ -105,8 +105,15 @@ public class SalesInfo {
                 String[] arr = line.split(",");
                 for (String s : arr) {
                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/training","nms-training","nms-training");
-                    PreparedStatement ps = con.prepareStatement("insert into salesinfo values(?,?,?,?,?,?)");
-//                    int sales_id = ps.setInt(1,s[0]);
+            PreparedStatement ps = con.prepareStatement("insert into salesinfo values(?,?,?,?,?,?)");
+            ps.setInt(1,salesInfo.getSales_id());
+            ps.setString(2,salesInfo.getProduct_name());
+            ps.setString(3,salesInfo.getCategory());
+            ps.setInt(4,salesInfo.getPrice());
+            ps.setInt(5,salesInfo.getItems_sold());
+            ps.setString(6,salesInfo.getSalesDate());
+            ps.executeUpdate();
+
 
 
                 }
