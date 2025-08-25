@@ -46,6 +46,7 @@ public class Login {
     }
      static  List<UserDetails> userDetails = new ArrayList<>();
     public Set<String> getActiveFemaleNAme(List<UserDetails> users) throws SQLException {
+        Set<String>activeFemales=new HashSet<>();
 
         try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/training", "nms-training", "nms-training");
              PreparedStatement ps = con.prepareStatement("Select * from user_details");) {
@@ -54,9 +55,13 @@ public class Login {
                 userDetails.add(new UserDetails(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
 
             }
-            System.out.println(userDetails);
+            for (UserDetails userDetails : userDetails) {
+                if(userDetails.getAccountStatus().equalsIgnoreCase("Active") && userDetails.getGender().equalsIgnoreCase("female")){
+                    activeFemales.add(userDetails.getName());
+                }
+            }
 
         }
-        return Set.of();
+        return activeFemales;
     }
 }
