@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SalesInfo {
     int sales_id;
@@ -91,7 +93,7 @@ public class SalesInfo {
 
     public static void main(String[] args) {
         SalesInfo salesInfo = new SalesInfo();
-
+        List<String> list = new ArrayList<>();
         salesInfo.highestSoldProduct();
         try {
             BufferedReader br = new BufferedReader(new FileReader("/home/nms-training/git/batch2025_exam/mathinath/src/main/resources/SALES_DATA.csv"));
@@ -112,6 +114,8 @@ public class SalesInfo {
             ps.setInt(4,salesInfo.getPrice());
             ps.setInt(5,salesInfo.getItems_sold());
             ps.setString(6,salesInfo.getSalesDate());
+            SalesInfo salesInfo1 = new SalesInfo(salesInfo.sales_id, salesInfo.product_name,salesInfo.category,salesInfo.price,salesInfo.items_sold,salesInfo.salesDate);
+            list.add(String.valueOf(salesInfo1));
             ps.executeUpdate();
 
 
@@ -124,20 +128,7 @@ public class SalesInfo {
         } catch (IOException | SQLException e) {
             throw new RuntimeException(e);
         }
-//        try {
-//            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/training","nms-training","nms-training");
-//            PreparedStatement ps = con.prepareStatement("insert into salesinfo values(?,?,?,?,?,?)");
-//            ps.setInt(1,salesInfo.getSales_id());
-//            ps.setString(2,salesInfo.getProduct_name());
-//            ps.setString(3,salesInfo.getCategory());
-//            ps.setInt(4,salesInfo.getPrice());
-//            ps.setInt(5,salesInfo.getItems_sold());
-//            ps.setString(6,salesInfo.getSalesDate());
-//            ps.executeUpdate();
-//
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
+
 
     }
 
