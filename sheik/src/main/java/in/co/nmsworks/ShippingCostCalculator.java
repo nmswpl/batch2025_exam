@@ -16,7 +16,8 @@ public class ShippingCostCalculator
 
     }
     public static int calculateTotalCost(ShippingMethod shippingMethod, Parcel parcel){
-        shippingMethod.
+        shippingMethod.getBasePrice();
+        return 0;
     }
     public static void generateQuotation(Parcel parcel){
 
