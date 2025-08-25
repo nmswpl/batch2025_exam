@@ -31,8 +31,8 @@ public class SalesInfo {
                 ps.setString(5,salesPersistor.getSale_date());
 //                ps.executeUpdate();
             }
-            ps1.execute();
             System.out.println(ps1);
+
         } catch (Exception e){
             e.printStackTrace();
         }
