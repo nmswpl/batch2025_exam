@@ -11,15 +11,16 @@ import java.util.Scanner;
 
 public class SalesInformation {
     public static void main(String[] args) throws FileNotFoundException {
-        SalesInformation si=new SalesInformation();
+        SalesInformation si = new SalesInformation();
         si.printAverage("Garden");
-        Scanner scan=new Scanner(System.in);
-        System.out.println("Enter username: ");
-        String username=scan.nextLine();
+
+
 
 
     }
+
     static List<SalesInfo> list = new ArrayList<>();
+
     public void printAverage(String category) throws FileNotFoundException {
 
         double avg;
@@ -43,7 +44,7 @@ public class SalesInformation {
                 count++;
                 sum += salesInfo.getPrice();
             }
-            avg=sum/count;
+            avg = sum / count;
             System.out.println(avg);
 
         } catch (IOException ex) {
@@ -54,10 +55,10 @@ public class SalesInformation {
 
     }
 
-    public void printHighest(){
+    public void printHighest() {
 
 
     }
 
 
-    }
+}
