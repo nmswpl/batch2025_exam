@@ -1,7 +1,7 @@
 package in.co.nmsworks.training_exam_2025;
 
 import java.sql.*;
-import java.util.Scanner;
+import java.util.*;
 
 public class LoginCredential
 {
@@ -12,6 +12,50 @@ public class LoginCredential
         LoginCredential loginCredential = new LoginCredential();
 
         loginCredential.login();
+
+        List<UserDetails> userDetailsList = loginCredential.getActiveFemaleNameInList();
+        Set<String> activeFemaleName = loginCredential.getActiveFemaleName(userDetailsList);
+
+
+
+
+    }
+
+    private List<UserDetails> getActiveFemaleNameInList()
+    {
+        List<UserDetails> userDetailsList = new ArrayList<>();
+
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/training", "nms-training", "nms-training")) {
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from user_details where gender = ?  and account_status = ?;");
+
+            preparedStatement.setString(1,"Female");
+            preparedStatement.setString(2,"Active");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next())
+            {
+                userDetailsList.add(new UserDetails(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),resultSet.getString(6)));
+            }
+            return userDetailsList;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    private Set<String> getActiveFemaleName(List<UserDetails> userDetailsList)
+    {
+        Set<String> activeFemaleName = new HashSet<>();
+        for (UserDetails userDetails : userDetailsList)
+        {
+            activeFemaleName.add(userDetails.getName());
+        }
+        for (String s : activeFemaleName)
+        {
+            System.out.println("Name of Active Femail user : "+s);
+        }
+        return activeFemaleName;
+
     }
 
     private void login()
