@@ -2,15 +2,18 @@
 package in.co.nmsworks;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class LoginCredentials
 {
-    public static void main(String[] args) {
-        List<UserDetails> userset = new HashSet<>();
-        try(Connection con = DriverManager.getConnection("/home/nms-training/git/batch2025_exam/sheik/src/main/resources/user_details.sql","nms-training" , "nms-training")) {
+
+    public static void main(String[] args) throws SQLException{
+        LoginCredentials lc=  new LoginCredentials();
+        List<UserDetails> userset = new ArrayList<>();
+        try(Connection con = DriverManager.getConnection("/home/nms-training/git/batch2025_exam/sheik/src/main/resources/user_details","nms-training" , "nms-training")) {
             PreparedStatement ps = con.prepareStatement("select * from user_details");
 
             ResultSet rs= ps.executeQuery();
@@ -20,8 +23,22 @@ public class LoginCredentials
             }
         }
         catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
+        lc.activeFemale(userset);
+
+    }
+
+    public Set<String> activeFemale(List<UserDetails> userDetails){
+        Set<String > user = new HashSet<>();
+
+        for (UserDetails userDetail : userDetails) {
+            if(userDetail.getAccount_status().equals("Active")){
+                user.add(userDetail.getUsername());
+            }
+        }
+
+        return user;
     }
 }
 
