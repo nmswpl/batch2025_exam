@@ -45,8 +45,10 @@ public class AirShipping implements ShippingMethod{
         else if (distance > 500 || distance < 1000) {
             finalDistanceP = 40;
         }
-        else if ()
+        else if (distance < 1000) {
+            finalDistanceP = 50;
+        }
 
-        return 0;
+        return finalDistanceP;
     }
 }
