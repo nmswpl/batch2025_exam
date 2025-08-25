@@ -36,6 +36,7 @@ public class ArmStrongNumber {
             sum = sum + mulnum;
             num = num /10;
         }
+
         return sum == originalNumber;
     }
 }

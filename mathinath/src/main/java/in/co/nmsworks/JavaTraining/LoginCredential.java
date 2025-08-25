@@ -12,10 +12,7 @@ public class LoginCredential {
         String password = sc.next();
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/training","nms-training","nms-training");
         PreparedStatement ps = con.prepareStatement("select * from user_details where username=name and username = password");
-        ResultSet rs = ps.executeQuery();
-        while(rs.next())
-        {
-
-        }
+       int rs = ps.executeUpdate();
+//       if
     }
 }
