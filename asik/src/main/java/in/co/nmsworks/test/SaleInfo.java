@@ -11,7 +11,7 @@ import java.util.Map;
 public class SaleInfo
 {
     private List<SalesData> salesDataList = new ArrayList<>();
-    Map<String, Double[]> avgPriceMap = new HashMap<>();
+    Map<String, Double[]> avgPrice = new HashMap<>();
 
     public static void main(String[] args)
     {
@@ -19,13 +19,20 @@ public class SaleInfo
 
         saleInfo.readFromFile("/home/nms-training/git/batch2025_exam/asik/src/main/resources/SALES_DATA.csv");
 
-        saleInfo.calculateAndPrintAvgPriceForEachCategory(saleInfo.salesDataList);
+        //saleInfo.calculateAndPrintAvgPriceForEachCategory(saleInfo.salesDataList);
 
         saleInfo.findAndPrintHighestSoldProductInEachMonth(saleInfo.salesDataList);
     }
 
     private void findAndPrintHighestSoldProductInEachMonth(List<SalesData> salesDataList)
     {
+        Map<Integer, String> soldProductPerMonth = new HashMap<>();
+        for (SalesData salesData : salesDataList)
+        {
+            Integer month = Integer.parseInt(salesData.getSaleDate().split("-")[1]);
+            soldProductPerMonth.put(month, soldProductPerMonth.getOrDefault(month, "") + salesData.getName());
+
+        }
 
 
     }
@@ -34,19 +41,19 @@ public class SaleInfo
     {
         for (SalesData salesData : salesDataList)
         {
-            if (!avgPriceMap.containsKey(salesData.getCategory()))
+            if (!avgPrice.containsKey(salesData.getCategory()))
             {
-                avgPriceMap.put(salesData.getCategory(), new Double[]{1.0, salesData.getPrice()});
+                avgPrice.put(salesData.getCategory(), new Double[]{1.0, salesData.getPrice()});
             }
             else
             {
-                Double[] val = avgPriceMap.get(salesData.getCategory());
+                Double[] val = avgPrice.get(salesData.getCategory());
                 val[0] = val[0] + 1;
                 val[1] = val[1] + salesData.getPrice();
             }
         }
 
-        for (Map.Entry<String, Double[]> entry : avgPriceMap.entrySet())
+        for (Map.Entry<String, Double[]> entry : avgPrice.entrySet())
         {
             System.out.println("Average Price For " + entry.getKey() + " is " + entry.getValue()[1]/entry.getValue()[0]);
         }
