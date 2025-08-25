@@ -19,6 +19,7 @@ public class SalesInfo {
             PreparedStatement ps = con.prepareStatement("INSERT INTO SalesInfo Values (?,?,?,?,?,?)");
             PreparedStatement ps1 = con.prepareStatement("Select DISTINCT category, AVG(price) as Average_price from SalesInfo GROUP BY category;")) {
             bw.readLine();
+
             String lines;
             while ((lines = bw.readLine()) != null) {
                 String[] strings = lines.split(",");
@@ -31,7 +32,7 @@ public class SalesInfo {
                 ps.setString(5,salesPersistor.getSale_date());
 //                ps.executeUpdate();
             }
-            System.out.println(ps1);
+            ps1.execute();
 
         } catch (Exception e){
             e.printStackTrace();
