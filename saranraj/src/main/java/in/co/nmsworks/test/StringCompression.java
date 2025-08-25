@@ -17,7 +17,7 @@ public class StringCompression {
             countFreq.put(c,countFreq.getOrDefault(c,1)+1);
         }
         for (Map.Entry<Character,Integer> display : countFreq.entrySet()){
-            System.out.println(display.getKey() +" "+display.getValue());
+            System.out.println(display.getKey()+""+display.getValue());
         }
     }
 }
