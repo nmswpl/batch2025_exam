@@ -4,18 +4,24 @@ public class ShippingCostCalculator {
     public static void main(String[] args) {
         ShippingCostCalculator shippingCostCalculator = new ShippingCostCalculator();
 
-        ShippingMethod airShipping = new AirShipping();
 
         Parcel parcel = new Parcel(5,100);
 
+        ShippingMethod airShipping = new AirShipping();
         shippingCostCalculator.calculateTotalCost(airShipping,parcel);
 
+        ShippingMethod landShipping = new LandShipping();
+        shippingCostCalculator.calculateTotalCost(landShipping,parcel);
 
-        shippingCostCalculator.generateQuotation(parcel);
+        ShippingMethod seaShipping = new SeaShipping();
+        shippingCostCalculator.calculateTotalCost(seaShipping,parcel);
+
+
+
     }
 
     public void calculateTotalCost(ShippingMethod shippingMethod, Parcel parcel){
-
+        generateQuotation(parcel);
     }
     public void generateQuotation(Parcel parcel){
 
