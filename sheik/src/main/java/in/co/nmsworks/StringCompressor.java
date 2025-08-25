@@ -21,7 +21,7 @@ public class StringCompressor
             sb.append(count);
             sb.append(input.charAt(i));
         }
-        String output = (String) sb;
+        String output =sb;
         return output;
     }
 }
