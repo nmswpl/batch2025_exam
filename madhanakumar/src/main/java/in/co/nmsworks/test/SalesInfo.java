@@ -33,9 +33,11 @@ public class SalesInfo {
 //                ps.executeUpdate();
             }
             ps1.execute();
-
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+    private void highestSoldProduct(){
+        
     }
 }
