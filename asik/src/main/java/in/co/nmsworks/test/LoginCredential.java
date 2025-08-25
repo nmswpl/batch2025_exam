@@ -12,18 +12,20 @@ public class LoginCredential
 {
     public static void main(String[] args)
     {
+        LoginCredential loginCredential = new LoginCredential();
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter UserName : ");
         String userName = sc.nextLine();
         System.out.println("Enter Password :");
         String password = sc.nextLine();
 
-        boolean isValid = checkUserNameAndPassword(userName, password);
+        boolean isValid = loginCredential.checkUserNameAndPassword(userName, password);
 
         System.out.println(isValid ? "Valid Credentials" : "Invalid Credentials");
     }
 
-    private static boolean checkUserNameAndPassword(String userName, String password)
+    private boolean checkUserNameAndPassword(String userName, String password)
     {
         try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/training", "nms-training", "nms-training");
              PreparedStatement pstmt = con.prepareStatement("select * from user_details where username = ? and password = ?"))
