@@ -12,6 +12,10 @@ public class Parcel {
 
         parcel.generateQuotation(logisticsManagement.toString());
 
+        LogisticsManagement logisticsManagement2=new SeaShipping();
+        logisticsManagement2.toString();
+
+
     }
     public <ShippingMethod> void calculateTotalCost(ShippingMethod shippingMethod, Parcel parcel){
         System.out.println("calculate total Shipping ");
