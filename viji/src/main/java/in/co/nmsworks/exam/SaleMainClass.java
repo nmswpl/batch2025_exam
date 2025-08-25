@@ -2,6 +2,7 @@ package in.co.nmsworks.exam;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,9 +11,8 @@ public class SaleMainClass {
 
     public static void main(String[] args) {
 
-       List<Integer> list = readFromBufferedReader("/home/nms-training/git/batch2025_exam/viji/src/main/resources/SALES_DATA.csv");
-       averagePrice(list);
-
+        List<Integer> list = readFromBufferedReader("/home/nms-training/git/batch2025_exam/viji/src/main/resources/SALES_DATA.csv");
+        averagePrice(list);
 
     }
 
@@ -32,6 +32,8 @@ public class SaleMainClass {
         return list ;
 
     }
+
+
 
     public  static void averagePrice(List<Integer> list) {
       int sum = 0;
