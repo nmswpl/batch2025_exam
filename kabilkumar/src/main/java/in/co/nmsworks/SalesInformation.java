@@ -21,7 +21,7 @@ public class SalesInformation {
             br.readLine();
             String s = null;
             while ((Line = br.readLine()) != null) {
-                //System.out.println(Line);
+                System.out.println(Line);
                 String[] split = Line.split(" , ");
                 //  System.out.println(split[1]);
 
