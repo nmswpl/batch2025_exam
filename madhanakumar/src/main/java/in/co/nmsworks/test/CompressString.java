@@ -19,9 +19,6 @@ public class CompressString {
                 }
                 output += occur+strings[i];
             }
-
-            occur = 0;
-
             System.out.println(output);
         }
 
