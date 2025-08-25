@@ -11,24 +11,31 @@ public class ShippingCostCalculator
 
         Parcel parcel1 = new Parcel(28, 350);
         Parcel parcel2 = new Parcel(40, 700);
-        Parcel parcel3 = new Parcel(15, 100);
 
         ShippingCostCalculator shippingCostCalculator = new ShippingCostCalculator();
         double cost = shippingCostCalculator.calculateTotalCost(airShipping, parcel1);
-        System.out.println("The Air Shipping Cost for Parcel is " + cost);
+        System.out.println("The Air Shipping Cost for Parcel is " + (int)cost);
+
+        shippingCostCalculator.generateQuotation(parcel2);
     }
 
     public double calculateTotalCost(ShippingMethod shippingMethod, Parcel parcel)
     {
             if (shippingMethod instanceof AirShipping)
             {
-                return ((2.5) * shippingMethod.getBasePrice() + shippingMethod.additionalWeightCost(parcel.getWeight()) * shippingMethod.additionalDistanceCost(parcel.getDistance())) + shippingMethod.getBasePrice() + shippingMethod.additionalWeightCost(parcel.getWeight()) * shippingMethod.additionalDistanceCost(parcel.getDistance());
+                double surgeAmount = 2.5 * (shippingMethod.getBasePrice() +
+                        shippingMethod.additionalWeightCost(parcel.getWeight()) + shippingMethod.additionalDistanceCost(parcel.getDistance()));
+                return surgeAmount +  shippingMethod.getBasePrice() +
+                        shippingMethod.additionalWeightCost(parcel.getWeight()) + shippingMethod.additionalDistanceCost(parcel.getDistance());
             }
-            return shippingMethod.getBasePrice() + shippingMethod.additionalWeightCost(parcel.getWeight()) * shippingMethod.additionalDistanceCost(parcel.getDistance());
+            return (shippingMethod.getBasePrice() + shippingMethod.additionalWeightCost(parcel.getWeight()) + shippingMethod.additionalDistanceCost(parcel.getDistance()));
     }
 
     public void generateQuotation(Parcel parcel)
     {
-        System.out.println("Quotation for Parcel (Weight: " + parcel.getWeight() + " kg, Distance: " + parcel.getDistance() + " km :");
+        System.out.println("Quotation for Parcel (Weight: " + parcel.getWeight() + " kg, Distance: " + parcel.getDistance() + " km) :");
+        System.out.println((int)calculateTotalCost(new AirShipping(500, 30, 300), parcel));
+        System.out.println((int)calculateTotalCost(new SeaShipping(250, 25, 150), parcel));
+        System.out.println((int)calculateTotalCost(new LandShipping(200, 15, 150), parcel));
     }
 }
