@@ -9,7 +9,7 @@ public class StringCompressor
         System.out.println(sc.compressString(input));
 
     }
-    private StringBuffer compressString(String input){
+    private String compressString(String input){
         StringBuffer sb = new StringBuffer();
         int index =0;
         for(int i=0;i<input.length();i=i+index){
@@ -21,6 +21,7 @@ public class StringCompressor
             sb.append(count);
             sb.append(input.charAt(i));
         }
-        return sb;
+        String output = (String) sb;
+        return output;
     }
 }
