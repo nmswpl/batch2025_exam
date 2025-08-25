@@ -58,44 +58,44 @@ public class SalesProcessor {
     static void printAveragePriceByCategory(List<SaleInfo> sales) {
         Map<String, List<Double>> map = new HashMap<>();
 
-        for (SaleInfo s : sales)
-            map.computeIfAbsent(s.category);
-
-
-        System.out.println("Average Price by Category:");
-        for (String cat : map.keySet()) {
-            List<Double> prices = map.get(cat);
-            double avg = prices.stream().findAny().orElse(0);
-            System.out.println(avg);
+        for (SaleInfo s : sales) {
+            //map.computeIfAbsent(s.category);
 
         }
-    }
+            System.out.println("Average Price by Category:");
+            for (String cat : map.keySet()) {
+                List<Double> prices = map.get(cat);
+              // double avg = prices.stream().findAny().orElse(0);
+               //System.out.println(avg);
 
-    static void printHighestSoldProductPerMonth(List<SaleInfo> sales) {
-        Map<String, SaleInfo> best = new HashMap<>();
+            }
 
-        for (SaleInfo s : sales) {
-            String month = s.getMonth();
-            if (!best.containsKey(month) || s.getTotalSales() > best.get(month).getTotalSales()) {
-                best.put(month, s);
+
+        //public static void printHighestSoldProductPerMonth(List < SaleInfo > sales) {
+            Map<String, SaleInfo> best = new HashMap<>();
+
+            for (SaleInfo s : sales) {
+                String month = s.getMonth();
+                if (!best.containsKey(month) || s.getTotalSales() > best.get(month).getTotalSales()) {
+                    best.put(month, s);
+                }
+            }
+
+            System.out.println("Highest Sold Product monthwice");
+            for (String m : best.keySet()) {
+                System.out.println(m + best.get(m));
             }
         }
 
-        System.out.println("Highest Sold Product monthwice");
-        for (String m : best.keySet()) {
-            System.out.println(m + best.get(m));
+        public static void main (String[] args){
+            String filePath = "/home/nms-training/git/batch2025_exam/kavi/src/main/resources/SALES_DATA.csv";
+            List<SaleInfo> sales = readSalesData(filePath);
+
+            if (!sales.isEmpty()) {
+                printAveragePriceByCategory(sales);
+               // printHighestSoldProductPerMonth(sales);
+            } else {
+                System.out.println("not foundd");
+            }
         }
     }
-
-    public static void main(String[] args) {
-        String filePath = "/home/nms-training/git/batch2025_exam/kavi/src/main/resources/SALES_DATA.csv";
-        List<SaleInfo> sales = readSalesData(filePath);
-
-        if (!sales.isEmpty()) {
-            printAveragePriceByCategory(sales);
-            printHighestSoldProductPerMonth(sales);
-        } else {
-            System.out.println("not fouund");
-        }
-    }
-}
