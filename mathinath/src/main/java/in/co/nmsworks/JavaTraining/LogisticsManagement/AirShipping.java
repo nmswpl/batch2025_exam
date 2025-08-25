@@ -2,37 +2,55 @@ package in.co.nmsworks.JavaTraining.LogisticsManagement;
 
 public class AirShipping implements ShippingMethod{
     int cost ;
-    public static void main(String[] args) {
-        AirShipping as = new AirShipping();
-        as.additionalWeightCost();
-    }
-
-    private void additionalWeightCost() {
-        if(s)
-    }
+    int basePrice=1000;
+    int baseWeight = 100;
+    int baseDistance = 90;
 
     @Override
     public double getBasePrice() {
-        return 0;
+        return basePrice;
     }
 
     @Override
     public double getBaseWeight() {
-        return 0;
+        return baseWeight;
     }
 
     @Override
     public double getBaseDistance() {
-        return 0;
+        return baseDistance;
     }
 
     @Override
     public double additionalWeightCost(double weight) {
-        return 0;
+        if(weight <= 10)
+        {
+            cost = cost + 50;
+        } else if (weight > 10 && weight <= 20) {
+            cost = cost + 60;
+        }
+        else
+        {
+            cost = cost + 70;
+        }
+
+        return cost;
     }
 
     @Override
     public double additionalDistanceCost(double distance) {
-        return 0;
+        if(distance <= 500)
+        {
+            cost = cost+20;
+        }
+        else if (distance > 500 && distance <=1000)
+        {
+            cost = cost+40;
+        }
+        else
+        {
+            cost = cost+50;
+        }
+        return cost;
     }
 }

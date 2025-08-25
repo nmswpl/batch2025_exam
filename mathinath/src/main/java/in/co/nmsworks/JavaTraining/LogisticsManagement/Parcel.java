@@ -3,12 +3,10 @@ package in.co.nmsworks.JavaTraining.LogisticsManagement;
 public class Parcel {
     int weight;
     int distance;
-    int basePrice;
 
-    public Parcel(int weight, int distance, int basePrice) {
+    public Parcel(int weight, int distance) {
         this.weight = weight;
         this.distance = distance;
-        this.basePrice = basePrice;
     }
 
     public int getWeight() {
@@ -25,13 +23,5 @@ public class Parcel {
 
     public void setDistance(int distance) {
         this.distance = distance;
-    }
-
-    public int getBasePrice() {
-        return basePrice;
-    }
-
-    public void setBasePrice(int basePrice) {
-        this.basePrice = basePrice;
     }
 }

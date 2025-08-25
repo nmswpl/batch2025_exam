@@ -1,28 +1,56 @@
 package in.co.nmsworks.JavaTraining.LogisticsManagement;
 
 public class LandShipping implements ShippingMethod{
+    int cost ;
+    int basePrice=1000;
+    int baseWeight = 100;
+    int baseDistance = 90;
     @Override
     public double getBasePrice() {
-        return 0;
+        return basePrice;
     }
 
     @Override
     public double getBaseWeight() {
-        return 0;
+        return baseWeight;
     }
 
     @Override
     public double getBaseDistance() {
-        return 0;
+        return baseDistance;
     }
 
     @Override
     public double additionalWeightCost(double weight) {
-        return 0;
+        if (weight < 5)
+        {
+            cost +=10;
+        }
+        else if(weight >5 && weight<=15)
+        {
+            cost+=15;
+        }
+        else
+        {
+            cost+=20;
+        }
+        return cost;
     }
 
     @Override
     public double additionalDistanceCost(double distance) {
-        return 0;
+        if (distance < 300)
+        {
+            cost+=20;
+        }
+        else if(distance > 300 && distance < 700)
+        {
+            cost+=30;
+        }
+        else
+        {
+            cost+=75;
+        }
+        return cost;
     }
 }
