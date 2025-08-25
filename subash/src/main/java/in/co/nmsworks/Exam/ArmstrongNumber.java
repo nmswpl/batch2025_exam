@@ -13,13 +13,13 @@ public class ArmstrongNumber
         int count=0;
         int rem=0;
         int sum;
-        int temp2;
+        int temp2,temp1;
         int noOfIteration=0;
         for(int i=877;;i++)
         {
             sum=1;
 
-            int temp = i;
+            temp1 = i;
             temp2=i;
 
             while(i>0)
@@ -29,17 +29,16 @@ public class ArmstrongNumber
                 count++;
             }
             int rem1=0;
-            while(temp>0)
+            while(temp1>0)
             {
-                rem1 = temp%10;
-//                System.out.println(rem);
+                rem1 = temp1%10;
                 for (int j = 0; j <=count; j++)
                 {
                     sum=sum*(rem1*rem1);
                 }
 
-                temp=temp/10;
-                System.out.println(temp);
+                temp1=temp1/10;
+                System.out.println(temp1);
             }
 
             if(sum==temp2)
