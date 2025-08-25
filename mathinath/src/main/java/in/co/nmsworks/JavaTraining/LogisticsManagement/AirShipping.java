@@ -2,6 +2,14 @@ package in.co.nmsworks.JavaTraining.LogisticsManagement;
 
 public class AirShipping implements ShippingMethod{
     int cost ;
+    public static void main(String[] args) {
+        AirShipping as = new AirShipping();
+        as.additionalWeightCost();
+    }
+
+    private void additionalWeightCost() {
+        if(s)
+    }
 
     @Override
     public double getBasePrice() {

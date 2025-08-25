@@ -137,7 +137,7 @@ public class SalesInfo {
     }
 
     private void highestSoldProduct() {
-
+        int price_Sold = items_sold * price;
 
     }
 

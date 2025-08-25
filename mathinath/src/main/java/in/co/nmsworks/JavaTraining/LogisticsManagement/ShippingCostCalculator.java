@@ -5,7 +5,7 @@ public class ShippingCostCalculator {
         ShippingMethod as = new AirShipping();
         ShippingMethod ls = new LandShipping();
         ShippingMethod ss = new SeaShipping();
-        Parcel p = new Parcel();
+        Parcel p = new Parcel(10,10,1000);
         calculateTotalCost(as,p);
         generateQuotation(p);
     }
