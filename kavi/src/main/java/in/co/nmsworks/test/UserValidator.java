@@ -6,16 +6,11 @@ import java.util.*;
 
 public class UserValidator {
 
-    private static Connection connect() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/training";
-        String user = "john24";
-        String password = "93a5fe6210bfcdb573ccd348e19e6a56";
-        return DriverManager.getConnection(url, user, password);
-    }
 
     private static boolean validateCredentials(String username, String passwordInput) {
-        try (Connection conn = connect()) {
+        try {
             String query = "SELECT password FROM user_details WHERE username = ?";
+            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:/3306/training","john24","93a5fe6210bfcdb573ccd348e19e6a56");
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setString(1, username);
             ResultSet rs = stmt.executeQuery();
@@ -42,7 +37,7 @@ public class UserValidator {
 
     private static List<UserDetails> getAllUsers() {
         List<UserDetails> users = new ArrayList<>();
-        try (Connection conn = connect()) {
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/your_database_name ","john24","93a5fe6210bfcdb573ccd348e19e6a56")) {
             String query = "SELECT * FROM user_details";
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
@@ -54,12 +49,12 @@ public class UserValidator {
                         rs.getString("username"),
                         rs.getString("password"),
                         rs.getString("gender"),
-                        rs.getBoolean("is_active")
+                        rs.getBoolean("isactive")
                 );
                 users.add(user);
             }
         } catch (SQLException e) {
-            System.out.println("Error fetching users: " + e.getMessage());
+            System.out.println(e.getMessage());
         }
         return users;
     }
@@ -68,7 +63,7 @@ public class UserValidator {
     private static Set<String> getActiveFemaleName(List<UserDetails> users) {
         Set<String> names = new HashSet<>();
         for (UserDetails user : users) {
-            if (user.isActive() && user.getGender().equalsIgnoreCase("female")) {
+            if (user.isActive() && user.getGender().equalsIgnoreCase("female") ){
                 names.add(user.getName());
             }
         }
