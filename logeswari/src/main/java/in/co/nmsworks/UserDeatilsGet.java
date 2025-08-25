@@ -8,12 +8,30 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class UserDeatilsGet {
     public static void main(String[] args) {
         LoginCredential loginCredential=new LoginCredential();
         loginCredential.isUserNameValidOrNot("Brit Meacher","lL5{&~og,yKtb|U");
         System.out.println("user Name : "+loginCredential.getUserName());
+
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("enter the user name : ");
+        String username=scanner.nextLine();
+        System.out.println("Name : "+username);
+
+        System.out.println("enter the password : ");
+        String password=scanner.nextLine();
+        System.out.println("Password : "+password);
+
+        if (username!=null&& password==username){
+            System.out.println("correct details");
+        }
+        else{
+            System.out.println("invalid details");
+        }
+
 
     }
     public List<SalesInformation> readDate(){
