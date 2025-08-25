@@ -68,6 +68,18 @@ public class UserDetails {
         this.account_status = account_status;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        UserDetails that = (UserDetails) o;
+        return Objects.equals(emp_id, that.emp_id) && Objects.equals(name, that.name) && Objects.equals(gender, that.gender) && Objects.equals(username, that.username) && Objects.equals(password, that.password) && Objects.equals(account_status, that.account_status);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(emp_id, name, gender, username, password, account_status);
+    }
+
     public UserDetails() {
     }
 
@@ -82,16 +94,47 @@ public class UserDetails {
     }
 
     private void checkUserValidateOrNot(List<UserDetails> listOfUserDetails) {
+
+        Set<String> listOfUsername = new HashSet<>();
+
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/training", "nms-training", "nms-training");
+             PreparedStatement ps = conn.prepareStatement("select username from user_details where account_status ='Active'")
+
+        ) {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+
+                String username = rs.getString("username");
+                listOfUsername.add(username);
+            }
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
         Scanner s = new Scanner(System.in);
         System.out.println("Enter the username");
         String username = s.nextLine();
         System.out.println("Enter the Password");
-        String pasword = s.nextLine();
-        for (UserDetails u :listOfUserDetails) {
-            if (username.equalsIgnoreCase(u.getUsername()) && password.equalsIgnoreCase(u.getPassword())){
-                 if ()
-            }
-        }
+        String password = String.valueOf(s.nextLine());
+       try {
+           for (UserDetails u :listOfUserDetails) {
+               if (username.equals(u.getUsername()) && password.equals(u.getPassword())){
+                   for (String user :listOfUsername) {
+                       if (username.equals(user)) {
+                           System.out.println(" Username "+username +" And Pasword "+password+" is Valid");
+                           break;
+                       }
+                   }
+               }else {
+                   System.out.println("Not valid Username and pasword");
+                   break;
+               }
+           }
+       }catch (NullPointerException e){
+           e.printStackTrace();
+       }
 
     }
 
