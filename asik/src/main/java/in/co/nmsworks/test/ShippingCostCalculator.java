@@ -14,7 +14,7 @@ public class ShippingCostCalculator
 
         ShippingCostCalculator shippingCostCalculator = new ShippingCostCalculator();
         double cost = shippingCostCalculator.calculateTotalCost(airShipping, parcel1);
-        System.out.println("The Air Shipping Cost for Parcel is " + (int)cost);
+        System.out.println("The Air Shipping Cost for Parcel is " + cost);
 
         shippingCostCalculator.generateQuotation(parcel2);
     }
@@ -34,8 +34,8 @@ public class ShippingCostCalculator
     public void generateQuotation(Parcel parcel)
     {
         System.out.println("Quotation for Parcel (Weight: " + parcel.getWeight() + " kg, Distance: " + parcel.getDistance() + " km) :");
-        System.out.println((int)calculateTotalCost(new AirShipping(500, 30, 300), parcel));
-        System.out.println((int)calculateTotalCost(new SeaShipping(250, 25, 150), parcel));
-        System.out.println((int)calculateTotalCost(new LandShipping(200, 15, 150), parcel));
+        System.out.println((calculateTotalCost(new AirShipping(500, 30, 300), parcel)));
+        System.out.println((calculateTotalCost(new SeaShipping(250, 25, 150), parcel)));
+        System.out.println((calculateTotalCost(new LandShipping(200, 15, 150), parcel)));
     }
 }
