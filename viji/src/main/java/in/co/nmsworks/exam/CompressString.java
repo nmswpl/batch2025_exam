@@ -19,13 +19,16 @@ public class CompressString {
     private static String compressString(String input){
        String output = "";
        Set<String> set = new LinkedHashSet<>();
-
+       int count ;
         for(int i =0 ; i<input.length () ; i++){
             char ch = input.charAt(i);
             if(input.indexOf(ch)==-1){
-                int count = 0;
+                count = 0;
                 count++;
                 output = output +ch;
+            }
+            else{
+                count++;
             }
 
         }
