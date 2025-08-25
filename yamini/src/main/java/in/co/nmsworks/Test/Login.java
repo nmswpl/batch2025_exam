@@ -12,7 +12,7 @@ public class Login {
         String password = scan.nextLine();
         Login log=new Login();
         //log.validate(username,password);
-        log.getActiveFemaleNAme(userDetails);
+        log.getActiveFemaleNAme(users);
 
 
     }
@@ -44,7 +44,7 @@ public class Login {
             e.printStackTrace();
         }
     }
-     static  List<UserDetails> userDetails = new ArrayList<>();
+     static  List<UserDetails> users = new ArrayList<>();
     public Set<String> getActiveFemaleNAme(List<UserDetails> users) throws SQLException {
         Set<String>activeFemales=new HashSet<>();
 
@@ -52,10 +52,10 @@ public class Login {
              PreparedStatement ps = con.prepareStatement("Select * from user_details");) {
             ResultSet rs=ps.executeQuery();
             while (rs.next()){
-                userDetails.add(new UserDetails(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
+                Login.users.add(new UserDetails(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
 
             }
-            for (UserDetails userDetails : userDetails) {
+            for (UserDetails userDetails : Login.users) {
                 if(userDetails.getAccountStatus().equalsIgnoreCase("Active") && userDetails.getGender().equalsIgnoreCase("female")){
                     activeFemales.add(userDetails.getName());
                 }
