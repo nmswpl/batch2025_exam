@@ -11,13 +11,13 @@ public class TemperatureConverter {
         TemperatureConverter converter = new TemperatureConverter();
 
         int celsius = 25;
-        System.out.println("celsius" + celsius + "=fahrenheit" + converter.CelsiusToFahrenheit(celsius));
+        System.out.println("celsius " + celsius + " =fahrenheit " + converter.CelsiusToFahrenheit(celsius));
 
 
         for (int c = -273; c <= 273; c++) {
             float f = converter.CelsiusToFahrenheit(c);
             if (Math.abs(f - c) < 0.001) {
-                System.out.println("Temperature Celsius equals Faheranheight: "+c);
+                System.out.println("Temperature Celsius equals Fahrenheit: "+c);
                 break;
             }
         }
