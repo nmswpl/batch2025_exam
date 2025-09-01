@@ -33,14 +33,7 @@ public class Passenger {
     public void setSurvived(int survived) {
         this.survived = survived;
     }
-
-    public String getpClass() {
-        return pClass;
-    }
-
-    public void setpClass(String pClass) {
-        this.pClass = pClass;
-    }
+    
 
     public String getName() {
         return name;
