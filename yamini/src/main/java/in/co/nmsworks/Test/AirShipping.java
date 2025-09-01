@@ -1,43 +1,49 @@
 package in.co.nmsworks.Test;
 
-public class AirShipping implements ShippingMethods{
-    double basePrice;
-    double baseWeight;
+public class AirShipping implements ShippingMethods {
+    double basePrice = 25;
+    double baseWeight = 15;
+    double baseDistance = 200;
+
+    public double getBasePrice() {
+        return basePrice;
+    }
+
+
     @Override
     public double getBasicPrice() {
         return basePrice;
     }
 
     @Override
-
-
     public double getBaseWeight() {
         return baseWeight;
     }
 
     @Override
     public double getBaseDistance() {
-        return 0;
+        return baseDistance;
     }
 
     @Override
     public double additionalDistanceCost(double distance) {
-        if(distance<500) {
-            return distance * 20;
-        } else if (distance>500 && distance<1000) {
-            return distance*40;
-
+        double addDistance = distance - baseDistance;
+        if (addDistance <= 300) {
+            return addDistance * 20;
+        } else if (addDistance >= 300 && addDistance <= 700) {
+            return addDistance * 30;
         }
-        return distance*50;
+        return addDistance * 35;
     }
 
     @Override
     public double additionalWeight(double weight) {
-        if(weight<=10){
-            return weight*50;
-        } else if (weight>10 && weight <20) {
-            return weight*60;
+        double addWeight = weight - getBaseWeight();
+        if (addWeight <= 5) {
+            return addWeight * 10 + getBasePrice();
+        } else if (addWeight > 5 && addWeight <= 15) {
+            return addWeight * 15;
         }
-        return weight*70;
+        return addWeight * 20;
     }
 }

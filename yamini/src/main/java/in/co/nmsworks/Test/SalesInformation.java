@@ -14,9 +14,6 @@ public class SalesInformation {
         SalesInformation si = new SalesInformation();
         si.printAverage("Garden");
 
-
-
-
     }
 
     static List<SalesInfo> list = new ArrayList<>();

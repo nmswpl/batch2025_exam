@@ -5,14 +5,15 @@ import java.util.*;
 
 public class Login {
     public static void main(String[] args) throws SQLException {
-        Scanner scan = new Scanner(System.in);
+
+        //Scanner scan = new Scanner(System.in);
         //System.out.println("Enter username: ");
-        String username = scan.nextLine();
+        //String username = scan.nextLine();
         //System.out.println("Enter password: ");
-        String password = scan.nextLine();
-        Login log=new Login();
-        //log.validate(username,password);
-        log.getActiveFemaleNAme(users);
+        //String password = scan.nextLine();
+       Login log=new Login();
+        // log.validate(username,password);
+        System.out.println(log.getActiveFemaleName());
 
 
     }
@@ -25,10 +26,12 @@ public class Login {
 
             rs = ps.executeQuery();
             while (rs.next()) {
+                System.out.println("1");
                 map.put(rs.getString(1), rs.getString(2));
                 //System.out.println("username: "+rs.getString(1)+" password: "+rs.getString(2));
             }
             for (Map.Entry<String, String> user : map.entrySet()) {
+                System.out.println(2);
                 if (Objects.equals(map.get(username), password)) {
                     System.out.println("Password is Valid");
                 }
@@ -38,30 +41,26 @@ public class Login {
                 }
             }
 
-
         }
         catch (Exception e){
             e.printStackTrace();
         }
     }
-     static  List<UserDetails> users = new ArrayList<>();
-    public Set<String> getActiveFemaleNAme(List<UserDetails> users) throws SQLException {
+      
+    public Set<String> getActiveFemaleName() throws SQLException {
+
+        //System.out.println(4);
         Set<String>activeFemales=new HashSet<>();
 
         try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/training", "nms-training", "nms-training");
-             PreparedStatement ps = con.prepareStatement("Select * from user_details");) {
+             PreparedStatement ps = con.prepareStatement("Select username from user_details where gender='Female' and account_status='Active'");) {
             ResultSet rs=ps.executeQuery();
             while (rs.next()){
-                Login.users.add(new UserDetails(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6)));
-
-            }
-            for (UserDetails userDetails : Login.users) {
-                if(userDetails.getAccountStatus().equalsIgnoreCase("Active") && userDetails.getGender().equalsIgnoreCase("female")){
-                    activeFemales.add(userDetails.getName());
-                }
+                //System.out.println(3);
+                activeFemales.add(rs.getString(1));
             }
 
-        }
+            }
         return activeFemales;
     }
 }

@@ -21,7 +21,7 @@ public class ArmstrongNumber {
     public boolean isArmstrong(int number){
         int temp=number;
         int result=0;
-        int count=0;
+        //int count=0;
         while(temp>0){
             int digits=temp%10;
             result+=Math.pow(digits,count(number));

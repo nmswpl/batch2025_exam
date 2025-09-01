@@ -8,6 +8,10 @@ public class UserDetails {
     private String password;
     private String accountStatus;
 
+    public UserDetails(String username) {
+        this.username=username;
+    }
+
     public String getEmpId() {
         return empId;
     }

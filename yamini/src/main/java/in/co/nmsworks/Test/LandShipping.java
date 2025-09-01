@@ -1,36 +1,17 @@
 package in.co.nmsworks.Test;
 
-public class LandShipping implements ShippingMethods {
+public class LandShipping extends Parcel implements ShippingMethods {
     double basePrice;
     double baseWeight;
-    double baseDistace;
+    double baseDistance;
 
-    public double getBasePrice() {
-        return basePrice;
+    public void setBaseDistance(double baseDistance) {
+        this.baseDistance = baseDistance;
     }
 
     public void setBasePrice(double basePrice) {
         this.basePrice = basePrice;
     }
-
-    public void setBaseWeight(double baseWeight) {
-        this.baseWeight = baseWeight;
-    }
-
-    public double getBaseDistace() {
-        return baseDistace;
-    }
-
-    public LandShipping(double basePrice, double baseWeight, double baseDistace) {
-        this.basePrice = basePrice;
-        this.baseWeight = baseWeight;
-        this.baseDistace = baseDistace;
-    }
-
-    public void setBaseDistace(double baseDistace) {
-        this.baseDistace = baseDistace;
-    }
-
 
     @Override
     public double getBasicPrice() {
@@ -39,21 +20,34 @@ public class LandShipping implements ShippingMethods {
 
     @Override
     public double getBaseWeight() {
-        return baseWeight;
+        return weight;
     }
 
     @Override
     public double getBaseDistance() {
-        return baseDistace;
+        return distance;
     }
+
 
     @Override
     public double additionalDistanceCost(double distance) {
-        return 0;
+        double addDistance = distance - baseDistance;
+        if (addDistance <= 300) {
+            return addDistance * 20;
+        } else if (addDistance >= 300 && addDistance <= 700) {
+            return addDistance * 30;
+        }
+        return addDistance * 35;
     }
 
     @Override
     public double additionalWeight(double weight) {
-        return 0;
+        double addWeight = weight - baseWeight;
+        if (addWeight <= 5) {
+            return addWeight * 10 + basePrice;
+        } else if (addWeight > 5 && addWeight <= 15) {
+            return addWeight * 15;
+        }
+        return addWeight * 20;
     }
 }
