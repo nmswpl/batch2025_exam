@@ -16,7 +16,7 @@ public class ParkingLot {
 
     public ParkingSpot findAvailableSpot(Type vehicleType) {
         for (ParkingSpot spot : spots.values()) {
-            if (spot.isAvailable() && spot.getSize() == vehicleType) {
+            if (spot.isAvailable() && spot.getSpotSize() == vehicleType) {
                 return spot;
             }
         }
@@ -35,10 +35,12 @@ public class ParkingLot {
         ParkingLot parkingLot = new ParkingLot();
         parkingLot.addParkingSpot(1, Type.BIKE);
         parkingLot.addParkingSpot(2, Type.CAR);
-        Vehicle bike = new Vehicle("BIKE123", Type.BIKE);
-        Vehicle car = new Vehicle("CAR456", Type.CAR);
-        System.out.println("Parking BIKE123: " + (parkingLot.parkVehicle(bike) ? "Success" : "Failed"));
-        System.out.println("Parking CAR456: " + (parkingLot.parkVehicle(car) ? "Success" : "Failed"));
-
+        parkingLot.addParkingSpot(3,Type.BIKE);
+        Vehicle bike1 = new Vehicle("TN 55 AQ 1346", Type.BIKE);
+        Vehicle car = new Vehicle("BMW 001 JB 007", Type.CAR);
+        Vehicle bike2 = new Vehicle("TN 07 MS 1110",Type.BIKE);
+        System.out.println("Parking BIKE => TN 55 AQ 1346 : " + (parkingLot.parkVehicle(bike1) ? "Success" : "Failed"));
+        System.out.println("Parking CAR => BMW 001 JB 007 : " + (parkingLot.parkVehicle(car) ? "Success" : "Failed"));
+        System.out.println("Parking BIKE => TN 07 MS 1110 : " + (parkingLot.parkVehicle(bike2) ? "Success" : "Failed"));
     }
 }

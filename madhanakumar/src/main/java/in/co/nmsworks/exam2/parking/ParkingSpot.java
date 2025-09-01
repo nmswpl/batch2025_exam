@@ -7,13 +7,13 @@ enum Type{
 public class ParkingSpot {
 
     private int spotNumber;
-    private Type size;
+    private Type spotSize;
     private boolean isAvailable;
     private Vehicle vehicle;
 
-    public ParkingSpot(int spotNumber, Type size) {
+    public ParkingSpot(int spotNumber, Type spotSize) {
         this.spotNumber = spotNumber;
-        this.size = size;
+        this.spotSize = spotSize;
         this.isAvailable = true;
         this.vehicle = null;
     }
@@ -21,22 +21,18 @@ public class ParkingSpot {
         return isAvailable;
     }
     public boolean parkVehicle(Vehicle vehicle) {
-        if (isAvailable && this.size == vehicle.getVehicleType()) {
+        if (isAvailable && this.spotSize == vehicle.getVehicleType()) {
             this.vehicle = vehicle;
             this.isAvailable = false;
             return true;
         }
         return false;
     }
-    public void freeSpot() {
-        this.vehicle = null;
-        this.isAvailable = true;
-    }
     public int getSpotNumber() {
         return spotNumber;
     }
-    public Type getSize() {
-        return size;
+    public Type getSpotSize() {
+        return spotSize;
     }
     public Vehicle getVehicle() {
         return vehicle;
