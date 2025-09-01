@@ -3,7 +3,8 @@ package in.co.nmsworks.exam2;
 import java.util.Arrays;
 
 public class RotateMatrix {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         RotateMatrix rm = new RotateMatrix();
         int[][] matrix = {
                 {1, 2, 3},
@@ -12,6 +13,7 @@ public class RotateMatrix {
         };
 
         System.out.println("Original matrix:");
+        System.out.println();
         rm.printMatrix(matrix);
 
         rm.printRotatedMatrix(matrix);
@@ -34,15 +36,16 @@ public class RotateMatrix {
         for (int i = 0; i < n; i++) {
             int left = 0;
             int right = n - 1;
-            while (left < right) {
+            while (left < right)
+            {
                 int temp = matrix[i][left];
                 matrix[i][left] = matrix[i][right];
                 matrix[i][right] = temp;
                 left++;
                 right--;
             }
-        }
-    }
+         }
+       }
 
     public  void printMatrix(int[][] matrix) {
         for (int[] row : matrix) {
