@@ -18,8 +18,8 @@ public class UserDetailsPersistor {
         System.out.println("Enter password: ");
         String password = sc.nextLine();*/
 
-        String username = "john24";
-        String password = "93a5fe6210bfcdb573ccd348e19e6a56";
+        String username = "bmeacher0";
+        String password = "lL5{&~og,yKtb|U";
 
         udp.checkUserNameAndPassword(username,password);
 
@@ -29,7 +29,7 @@ public class UserDetailsPersistor {
     }
     public void checkUserNameAndPassword(String userName, String password){
         int userFlag = 0, passFlag = 0;
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/training","user-training","user-training");
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/training","nms-training","nms-training");
             PreparedStatement ps = con.prepareStatement("select username, password from user_details") ){
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
@@ -43,10 +43,10 @@ public class UserDetailsPersistor {
             if(userFlag == 1 && passFlag == 1){
                 System.out.println("Password is Valid");
             }
-            if(userFlag == 0 && passFlag == 1){
+            if(userFlag == 0){
                 System.out.println("Invalid Username");
             }
-            if(userFlag == 1 && passFlag == 0){
+            if(passFlag == 0){
                 System.out.println("Invalid Password");
             }
         } catch (Exception e) {
@@ -55,7 +55,7 @@ public class UserDetailsPersistor {
     }
     public List<UserDetails> createUserList(){
         List<UserDetails> userDetailsList = new ArrayList<>();
-        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/training","user-training","user-training");
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/training","nms-training","nms-training");
             PreparedStatement ps = con.prepareStatement("select * from user_details") ){
             ResultSet rs = ps.executeQuery();
             while(rs.next()){

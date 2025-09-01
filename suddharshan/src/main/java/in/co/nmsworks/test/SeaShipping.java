@@ -1,6 +1,6 @@
 package in.co.nmsworks.test;
 
-public class SeaShipping implements ShippingMethod{
+public class SeaShipping implements ShippingMethod {
     @Override
     public double getBaseDistance() {
         return 50;
@@ -13,50 +13,38 @@ public class SeaShipping implements ShippingMethod{
 
     @Override
     public double getBasePrice() {
-        return 20;
+        return 1507;
     }
 
     @Override
     public double additionalDistanceCost(double distance) {
-        if(distance <= this.getBaseDistance()){
-            return distance*this.getBasePrice();
-        }
-        else if(distance > this.getBaseDistance() && distance <= 100){
-            double distanceRemaining = distance-this.getBaseDistance();
-            double price = (this.getBasePrice()*this.getBaseDistance()) + (distanceRemaining*10);
-            return price;
-        }
-        else if(distance > 100 && distance <= 500){
-            double distanceRemaining = distance-(this.getBaseDistance()+100);
-            double price = (this.getBasePrice()*this.getBaseDistance()) + (50*10) +(distanceRemaining*20);
-            return price;
-        }
-        else{
-            double distanceRemaining = distance-(this.getBaseDistance()+100+400);
-            double price = (this.getBasePrice()*this.getBaseDistance()) + (50*10) + (400*20)+ (distanceRemaining*25);
-            return price;
+        if (distance <= this.getBaseDistance()) {
+            return this.getBasePrice();
+        } else if (distance > this.getBaseDistance() && distance <= 150) {
+            double distanceRemaining = distance - this.getBaseDistance();
+            return this.getBasePrice() + (distanceRemaining * 10);
+        } else if (distance > 150 && distance <= 550) {
+            double distanceRemaining = distance - (this.getBaseDistance() + 100);
+            return this.getBasePrice() + (100 * 10) + (distanceRemaining * 20);
+        } else {
+            double distanceRemaining = distance - (this.getBaseDistance() + 100 + 400);
+            return this.getBasePrice() + (100 * 10) + (400 * 20) + (distanceRemaining * 25);
         }
     }
 
     @Override
     public double additionalWeightCost(double weight) {
-        if(weight <= this.getBaseWeight()){
-            return weight*this.getBasePrice();
-        }
-        else if(weight > this.getBaseWeight() && weight <= 25){
-            double distanceRemaining = weight-this.getBaseDistance();
-            double price = (this.getBasePrice()*this.getBaseDistance()) + (distanceRemaining*30);
-            return price;
-        }
-        else if(weight > 25 && weight <= 50){
-            double distanceRemaining = weight-(this.getBaseDistance()+5);
-            double price = (this.getBasePrice()*this.getBaseDistance()) + (15*30) +(distanceRemaining*40);
-            return price;
-        }
-        else{
-            double distanceRemaining = weight-(this.getBaseDistance()+15+25);
-            double price = (this.getBasePrice()*this.getBaseDistance()) + (15*30) + (25*40)+ (distanceRemaining*45);
-            return price;
+        if (weight <= this.getBaseWeight()) {
+            return this.getBasePrice();
+        } else if (weight > this.getBaseWeight() && weight <= 35) {
+            double weightRemaining = weight - this.getBaseWeight();
+            return this.getBasePrice() + (weightRemaining * 30);
+        } else if (weight > 35 && weight <= 60) {
+            double weightRemaining = weight - (this.getBaseWeight() + 25);
+            return this.getBasePrice() + (25 * 30) + (weightRemaining * 40);
+        } else {
+            double weightRemaining = weight - (this.getBaseWeight() + 25 + 25);
+            return this.getBasePrice() + (25 * 30) + (25 * 40) + (weightRemaining * 45);
         }
     }
 }
