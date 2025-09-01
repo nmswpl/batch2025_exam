@@ -23,7 +23,7 @@ public class PassengerRunner
     {
         for (Passenger p : passengerList)
         {
-            if (p.getAge() == age)
+            if (p.getAge() <= age)
             {
                 System.out.println("Name : " + p.getName() + ", Age : " + p.getAge() + ", Gender : " + p.getGender());
             }
