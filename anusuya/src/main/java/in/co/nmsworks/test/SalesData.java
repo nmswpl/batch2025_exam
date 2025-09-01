@@ -1,5 +1,7 @@
 package in.co.nmsworks.test;
 
+import java.util.Objects;
+
 public class SalesData {
 
     private String salesId;
@@ -66,6 +68,18 @@ public class SalesData {
 
     public String getSalesDate() {
         return salesDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        SalesData salesData = (SalesData) o;
+        return Double.compare(price, salesData.price) == 0 && noOfItemSold == salesData.noOfItemSold && Objects.equals(salesId, salesData.salesId) && Objects.equals(productName, salesData.productName) && Objects.equals(category, salesData.category) && Objects.equals(salesDate, salesData.salesDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(salesId, productName, category, price, noOfItemSold, salesDate);
     }
 
     @Override

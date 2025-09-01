@@ -82,7 +82,9 @@ public class SalesInfo {
             }
         }
         System.out.println("\nHighest Sold Products in each month : ");
-        System.out.println(highestSoldProductBasedOnMonthMap);
+        for (Map.Entry<String, SalesData> stringSalesDataEntry : highestSoldProductBasedOnMonthMap.entrySet()) {
+            System.out.println(stringSalesDataEntry.getKey() + " --> "+ stringSalesDataEntry.getValue());
+        }
     }
 }
 

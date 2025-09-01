@@ -1,9 +1,13 @@
 package in.co.nmsworks.test;
 
+import java.util.Arrays;
+
 public class Parcel {
 
     private double weight;
     private double distance;
+    private double totalCost;
+    private int[] latLongTo = new int[2];
 
     Parcel(){}
 
@@ -28,11 +32,29 @@ public class Parcel {
         return distance;
     }
 
+    public void setTotalCost(double totalCost) {
+        this.totalCost = totalCost;
+    }
+
+    public double getTotalCost() {
+        return totalCost;
+    }
+
+    public int[] getLatLongTo() {
+        return latLongTo;
+    }
+
+    public void setLatLongTo(int[] latLongTo) {
+        this.latLongTo = latLongTo;
+    }
+
     @Override
     public String toString() {
         return "Parcel{" +
                 "weight=" + weight +
                 ", distance=" + distance +
+                ", totalCost=" + totalCost +
+                ", latLongTo=" + Arrays.toString(latLongTo) +
                 '}';
     }
 }

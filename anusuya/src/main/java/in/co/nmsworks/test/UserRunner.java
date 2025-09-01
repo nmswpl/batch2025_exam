@@ -1,7 +1,5 @@
 package in.co.nmsworks.test;
 
-import com.mysql.cj.jdbc.result.ResultSetImpl;
-
 import java.sql.*;
 import java.util.*;
 
@@ -19,9 +17,9 @@ public class UserRunner {
         String username = sc.nextLine();
         System.out.print("Enter PASSWORD : ");
         String password = sc.nextLine();
-        //user.checkUsernameAndPasswordAndPrintAppropriateMessage(username,password);
+        user.checkUsernameAndPasswordAndPrintAppropriateMessage(username,password);
 
-        List<UserDetails> userDetailsList = user.createObjecsForUserDetails();
+        List<UserDetails> userDetailsList = user.createObjectsForUserDetails();
 
         Set<String> activeFemaleSet = user.getActiveFemaleName(userDetailsList);
         System.out.println("ACTIVE Female Users : \n" + activeFemaleSet);
@@ -30,21 +28,24 @@ public class UserRunner {
     public void checkUsernameAndPasswordAndPrintAppropriateMessage(String username, String password) {
 
         try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/training","nms-training","nms-training");
-            Statement st = con.createStatement()) {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT username,password FROM user_details")) {
 
-            try (ResultSet rs = st.executeQuery("SELECT * FROM user_details WHERE username='" + username + "';")) {
-                if (rs.getString(1) != null){
-                    System.out.println("USERNAME IS VALID");
+            Map<String,String> usernamePassword = new HashMap<>();
+            while (rs.next()) {
+                usernamePassword.put(rs.getString(1), rs.getString(2));
+            }
+
+            if(usernamePassword.containsKey(username)){
+                if(usernamePassword.get(username).equals(password)){
+                    System.out.println("USERNAME AND PASSWORD IS VALID");
                 }
-                if (rs.getString(1) == null){
-                    System.out.println("USERNAME IS INVALID");
+                else{
+                    System.out.println("INVALID PASSWORD");
                 }
-                if (rs.getString(2) != null){
-                    System.out.println("PASSWORD IS VALID");
-                }
-                if (rs.getString(2) == null){
-                    System.out.println("PASSWORD IS INVALID");
-                }
+            }
+            else{
+                System.out.println("INVALID USERNAME");
             }
         }
         catch (SQLException e) {
@@ -52,7 +53,7 @@ public class UserRunner {
         }
     }
 
-    private List<UserDetails> createObjecsForUserDetails() {
+    private List<UserDetails> createObjectsForUserDetails() {
 
         List<UserDetails> tempUserDetailsList = new ArrayList<>();
 
