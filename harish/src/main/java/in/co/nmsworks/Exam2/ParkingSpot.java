@@ -40,4 +40,7 @@ public class ParkingSpot {
             return 0;
         }
     }
+    public void leaveVehicle(){
+        isAvailable = true;
+    }
 }

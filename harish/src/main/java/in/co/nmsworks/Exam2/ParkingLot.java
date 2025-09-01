@@ -24,8 +24,33 @@ public class ParkingLot {
         parkingSpots.add(addParkingSpot(126,Parkingtypes.Bike));
         AvailableParkingSpot(parkingSpots,Parkingtypes.Bike);
         Vehicle vehicle = new Vehicle("BIKE123",Parkingtypes.Bike);
+        Vehicle vehicle2 = new Vehicle("BIKE124",Parkingtypes.Bike);
+        Vehicle vehicle3 = new Vehicle("BIKE125",Parkingtypes.Bike);
         parkAVehicle(vehicle,parkingSpots);
+        parkAVehicle(vehicle2,parkingSpots);
+        parkAVehicle(vehicle3,parkingSpots);
+        freeUpParkingSpot(125,parkingSpots);
+        prinTheCurrentStatus(parkingSpots);
 
+    }
+
+    private static void prinTheCurrentStatus(List<ParkingSpot> parkingSpots) {
+        for (ParkingSpot parkingSpot : parkingSpots) {
+            if (parkingSpot.isAvailable) {
+                System.out.println(parkingSpot.getSpotNumber() + ":" + parkingSpot.getType() + " Vehicle parked");
+            }
+            else {
+                System.out.println(parkingSpot.getSpotNumber() + ":" + parkingSpot.getType() + " Vehicle Not  parked");
+            }
+        }
+    }
+
+    private static void freeUpParkingSpot(int spotNumber, List<ParkingSpot> parkingSpots) {
+        for (ParkingSpot parkingSpot : parkingSpots) {
+            if (parkingSpot.getSpotNumber() == spotNumber){
+                parkingSpot.leaveVehicle();
+            }
+        }
     }
 
     private static void parkAVehicle(Vehicle vehicle,List<ParkingSpot> parkingSpots) {
@@ -37,11 +62,15 @@ public class ParkingLot {
                     parkingSpot.parkAVehicle();
                     vehicleStatus = true;
                     spotNumber = parkingSpot.getSpotNumber();
+                    break;
                 }
             }
         }
         if (vehicleStatus){
-            System.out.println("Vehicle Parked Succesfully;");
+            System.out.println("Vehicle Parked Succesfully;" + spotNumber);
+        }
+        else {
+            System.out.println("There is no parking space available");
         }
     }
 
