@@ -24,30 +24,9 @@ public class CompressString {
                 map.put(str1[i],1);
             }
         }
-
-//        int acount = 0;
-//        int bcount = 0;
-//        int ccount = 0;
-//        for(int i=0;i<str.length();i++)
-//        {
-//
-//            char[] ch = str.toCharArray();
-//            if(ch[i]=='a')
-//            {
-//                acount++;
-//            }
-//            else if(ch[i]=='b')
-//            {
-//                bcount++;
-//            }
-//            else
-//            {
-//                ccount++;
-//            }
-//        }
-//        String str1 = "a"+acount;
-//        System.out.println(str1);
-        System.out.println(map);
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            System.out.print(entry.getKey()+entry.getValue());
+        }
         return str;
     }
 }

@@ -92,43 +92,6 @@ public class SalesInfo {
     }
 
     public static void main(String[] args) {
-        SalesInfo salesInfo = new SalesInfo();
-        List<String> list = new ArrayList<>();
-        salesInfo.highestSoldProduct();
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("/home/nms-training/git/batch2025_exam/mathinath/src/main/resources/SALES_DATA.csv"));
-            String line;
-            int averagePrice = 0;
-            int count = 0;
-            while((line = br.readLine()) != null)
-            {
-                System.out.println(line);
-                count++;
-                String[] arr = line.split(",");
-                for (String s : arr) {
-                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/training","nms-training","nms-training");
-            PreparedStatement ps = con.prepareStatement("insert into salesinfo values(?,?,?,?,?,?)");
-            ps.setInt(1, Integer.parseInt(arr[0]));
-            ps.setString(2,arr[1]);
-            ps.setString(3,arr[2]);
-            ps.setInt(4, Integer.parseInt(arr[3]));
-            ps.setInt(5, Integer.parseInt(arr[4]));
-            ps.setString(6,arr[5]);
-            SalesInfo salesInfo1 = new SalesInfo(salesInfo.sales_id, salesInfo.product_name,salesInfo.category,salesInfo.price,salesInfo.items_sold,salesInfo.salesDate);
-            list.add(String.valueOf(salesInfo1));
-            ps.executeUpdate();
-
-
-
-                }
-//                salesInfo.calculateAndPrintAveragePrice(line,count);
-            }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException | SQLException e) {
-            throw new RuntimeException(e);
-        }
-
 
     }
 

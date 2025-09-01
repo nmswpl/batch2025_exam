@@ -3,40 +3,37 @@ package in.co.nmsworks.JavaTraining;
 public class ArmStrongNumber {
     public static void main(String[] args) {
         ArmStrongNumber asn = new ArmStrongNumber();
-        if(asn.isArmStrongNumber(123))
+        int count = 0;
+        for (int i = 10; i < 10000; i++)
         {
-            System.out.println("ArmStrnong number");
+            if (asn.isArmStrongNumber(i))
+            {
+                count++;
+                System.out.println(i + " ");
+            }
         }
-        else
-        {
-            System.out.println("Not an armstrong number");
-        }
+        System.out.println("The "+count+" armstrong numbers are :");
     }
 
-    public boolean  isArmStrongNumber(int n) {
+    public boolean isArmStrongNumber(int n) {
         int originalNumber = n;
-        int num = n;
-        int num1 = n;
+        int temp = n;
         int count = 0;
-        while(num1 > 0)
-        {
-            int rem = num1 % 10;
-            count++;
-            num1 = num1 / 10;
-        }
         int sum = 0;
-        while(num>0)
-        {
-            int mulnum = 0;
-            int digit = num % 10;
-            for(int i = 1;i<=count;i++)
-            {
-                mulnum = digit * count;
-            }
-            sum = sum + mulnum;
-            num = num /10;
+        while (temp > 0) {
+            count++;
+            temp = temp / 10;
         }
-
+        temp = n;
+        while (temp > 0) {
+            int digit = temp % 10;
+            int power = 1;
+            for (int i = 0; i < count; i++) {
+                power = power * digit;
+            }
+            sum += power;
+            temp = temp / 10;
+        }
         return sum == originalNumber;
     }
 }
