@@ -18,8 +18,5 @@ public class ParkingLotManagementSystem {
        parkingLot.findAvailableParking("car");
        parkingLot.findAvailableParking("bike");
 
-
-
-
     }
 }

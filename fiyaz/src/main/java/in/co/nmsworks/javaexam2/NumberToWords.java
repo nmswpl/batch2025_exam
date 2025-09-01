@@ -13,7 +13,7 @@ public class NumberToWords {
     };
 
     String[] tens = {
-             "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"
+            "", "","Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"
     };
 
 
