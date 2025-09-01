@@ -3,27 +3,30 @@ package in.co.nmsworks;
 public class ArmstrongNumber {
     public static void main(String[] args) {
         ArmstrongNumber aMN = new ArmstrongNumber();
-        int[] number = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        aMN.findArmstrongNumber(number);
-
-
+        int n = 10;
+        int j = 0;
+        while (j <= 7) {
+            boolean sum = aMN.findArmstrongNumber(n);
+            if (sum) {
+                System.out.println(n);
+                j++;
+            }
+            n++;
+        }
     }
 
-    public void findArmstrongNumber(int[] findArmstrong) {
-        double rem = 1;
-        int sum = 0;
-        for (int i = findArmstrong.length - 1; i >= 0; i--) {
-            rem = findArmstrong[i];
-            sum += (int) Math.pow(3, rem);
-
+    public boolean findArmstrongNumber(int n) {
+        int number = n;
+        double digits;
+        double sum = 0;
+        while (number < 0) {
+            digits = number % 10;
+            sum = sum + Math.pow(digits, 3);
+            number = number / 10;
         }
-        if (findArmstrong.equals(sum)) {
-            System.out.println("thsi is Armstrong number : " + findArmstrong);
-        } else {
-            System.out.println("the amstrong of first 10 numbers is not armstrong :" + sum);
+        if (sum == n) {
+            return true;
         }
-
+        return false;
     }
-
-
 }
