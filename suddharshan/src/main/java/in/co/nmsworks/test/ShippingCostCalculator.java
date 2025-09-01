@@ -3,13 +3,16 @@ package in.co.nmsworks.test;
 public class ShippingCostCalculator {
     public static void main(String[] args) {
         ShippingCostCalculator sc = new ShippingCostCalculator();
-        Parcel p = new Parcel(35,500);
+        Parcel p = new Parcel(35,505);
         sc.generateQuotation(p);
     }
     public void calculateTotalCost(ShippingMethod shippingMethod, Parcel parcel){
         double distance = parcel.getDistance();
         double weight = parcel.getWeight();
         double totalcost = shippingMethod.additionalDistanceCost(distance) + shippingMethod.additionalWeightCost(weight);
+        if(shippingMethod instanceof AirShipping){
+            totalcost += (2.5/100) * totalcost;
+        }
         System.out.println(totalcost);
     }
     public void generateQuotation(Parcel parcel){

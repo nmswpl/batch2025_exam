@@ -4,18 +4,26 @@ public class CompressString {
     public static void main(String[] args) {
         CompressString cs = new CompressString();
         cs.compressString("aaabbca");
+        cs.compressString("");
     }
     public void compressString(String str){
-        String res = "" ;
-        for(int i = 0; i < str.length(); i++){
-            Character temp = str.charAt(i);
-            int j = i+1;
-            while (temp.equals(str.charAt(j))){
-                j++;
+        if(str.isEmpty()){
+            System.out.println("String is Empty");
+        }  else{
+            String res = "";
+            int i = 0;
+            while(i < str.length()){
+                Character temp = str.charAt(i);
+                int j = i+1;
+                int count = 1;
+                while (j < str.length() && temp.equals(str.charAt(j)) ){
+                    j++;
+                    count++;
+                }
+                res = res + temp + count;
+                i = j;
             }
-            res = res + (temp + j);
-            i = i+j;
+            System.out.println(res);
         }
-        System.out.println(res);
     }
 }

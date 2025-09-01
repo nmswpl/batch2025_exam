@@ -5,9 +5,9 @@ import java.util.List;
 
 public class ArmstrongNumber {
     public static void main(String[] args) {
-        List<Long> armstrongNos = new ArrayList<>();
+        List<Integer> armstrongNos = new ArrayList<>();
         ArmstrongNumber arm = new ArmstrongNumber();
-        long number = 10;
+        int number = 10;
         while(armstrongNos.size() != 7){
             boolean res = arm.isArmstrongNumber(number);
             if(res){
@@ -17,12 +17,12 @@ public class ArmstrongNumber {
         }
         System.out.println(armstrongNos);
     }
-    public boolean isArmstrongNumber(long num){
+    public boolean isArmstrongNumber(int num){
         int sum = 0;
-        long copyNum = num;
+        int copyNum = num;
         while(num != 0){
-            long rem = num % 10;
-            sum += (rem * rem * rem);
+            int rem = num % 10;
+            sum += (int) Math.pow(rem,String.valueOf(copyNum).length());
             num = num / 10;
         }
         if(sum == copyNum){
