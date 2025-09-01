@@ -8,19 +8,24 @@ public class CompressString
 
         String str = "aaabbca";
 
-        String result = compressString.getCompressedString(str);
+        String result = compressString.compressedString(str.trim());
 
-        System.out.println(result);
+        System.out.println(result == null ? "Empty String Cannot Be Compressed" : result);
 
-        str = "abbc";
+        str = "";
 
-        result = compressString.getCompressedString(str);
+        result = compressString.compressedString(str.trim());
 
-        System.out.println(result);
+        System.out.println(result == null ? "Empty String Cannot Be Compressed" : result);
     }
 
-    private String getCompressedString(String str)
+    private String compressedString(String str)
     {
+        if (str == null || str.isEmpty())
+        {
+            return null;
+        }
+
         int count = 1;
         char c = str.charAt(0);
         String result = "";
