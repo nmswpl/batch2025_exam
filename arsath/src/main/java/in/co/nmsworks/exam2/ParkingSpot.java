@@ -5,13 +5,18 @@ import javax.smartcardio.Card;
 public class ParkingSpot {
 
     private int size;
-    private String spotNumber;
+    private int spotNumber;
     private String availabilityStatus;
 
-    public ParkingSpot() {
+    private boolean isAvailable(int spotNumber){
+        return false;
     }
 
+    private String parkTheVehicle(int size){
+        return "Vehicle is parked";
+    }
 
-
-
+    private String freeTheSpot(int size){
+        return "Spot is freed";
+    }
 }

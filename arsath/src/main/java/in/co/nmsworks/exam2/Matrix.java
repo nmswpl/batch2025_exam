@@ -7,11 +7,12 @@ public class Matrix {
         int[][] matrix = { {1,2,3}, {4,5,6}, {7,8,9} };
         int[][] rotatedMatrix = new int[3][3];
 
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix.length; j++) {
-                rotatedMatrix[i][j] = matrix[j][i];
+        for (int i = 0; i <= matrix.length-1; i++) {
+            for (int j =0; j <= matrix.length -1 ; j++) {
+                rotatedMatrix[i][j] = matrix[matrix.length-1][i];
             }
         }
+
 
         for (int i = 0; i < rotatedMatrix.length; i++) {
             for (int j = 0; j < rotatedMatrix.length ; j++) {
