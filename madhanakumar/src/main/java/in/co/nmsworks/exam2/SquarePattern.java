@@ -15,10 +15,10 @@ public class SquarePattern {
         for (int i = 1 ; i <= limit ; i++){
             for (int j = 1 ; j <= limit ; j++){
                 if (i == 1 || i == limit){
-                    System.out.print(i+" ");
+                    System.out.print(i);
                 } else {
                     if (j == 1 || j == limit){
-                        System.out.print(i+" ");
+                        System.out.print(i);
                     } else {
                         System.out.print(" ");
                     }
