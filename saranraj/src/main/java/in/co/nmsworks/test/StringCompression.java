@@ -11,13 +11,19 @@ public class StringCompression {
     }
 
     private void compressString(String str) {
-        char[] ch =str.toCharArray();
-        Map<Character,Integer> countFreq = new HashMap<>();
-        for (char c :ch) {
-            countFreq.put(c,countFreq.getOrDefault(c,1)+1);
+
+        int count=1;
+        StringBuilder compress = new StringBuilder();
+        for (int i = 0; i < str.length()-1; i++) {
+            if (str.charAt(i)==str.charAt(i+1)){
+                count++;
+        }else {
+                compress.append(str.charAt(i)).append(count);
+                count=1;
+            }
         }
-        for (Map.Entry<Character,Integer> display : countFreq.entrySet()){
-            System.out.println(display.getKey()+""+display.getValue());
-        }
+        compress.append(str.charAt(str.length()-1)).append(count);
+
+        System.out.println(compress);
     }
 }

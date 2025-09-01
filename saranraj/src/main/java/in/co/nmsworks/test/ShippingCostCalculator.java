@@ -4,22 +4,31 @@ public class ShippingCostCalculator {
     public static void main(String[] args) {
         ShippingCostCalculator sc = new ShippingCostCalculator();
         Parcel parcel = new Parcel(15, 1200);
+
+        sc.generateQuotation(parcel);
+    }
+
+    private void generateQuotation(Parcel parcel) {
         AirShipping air = new AirShipping();
-        sc.calculateTotalCost(air, parcel);
         SeaShipping sea = new SeaShipping();
-        sc.calculateTotalCost(sea, parcel);
         LandShipping land = new LandShipping();
-        sc.calculateTotalCost(land, parcel);
+        System.out.println("Air Shipping : " + calculateTotalCost(air, parcel));
+        System.out.println("Land Shipping : " + calculateTotalCost(land, parcel));
+        System.out.println("Sea Shipping : " + calculateTotalCost(sea, parcel));
 
     }
 
 
-    private void calculateTotalCost(ShippingMethod method, Parcel parcel) {
+    private static double calculateTotalCost(ShippingMethod method, Parcel parcel) {
+        double base = method.getBaseDistance();
         double distance = method.additionalDistanceCost(parcel.getDistance());
         double weight = method.additionalWeightCost(parcel.getWeight());
-        System.out.println("Method :" + method.getClass().getSimpleName());
-        System.out.println("Calculate distance :" + distance);
-        System.out.println("Calculate weight :" + weight);
 
+        double total = distance + weight + base;
+
+        if (method instanceof AirShipping) {
+            total += total * 0.25;
+        }
+        return total;
     }
 }

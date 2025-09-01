@@ -2,7 +2,6 @@ package in.co.nmsworks.test;
 
 public class LandShipping implements ShippingMethod {
     private double weight;
-    private double cost;
     private double distance;
 
     public double getWeight() {
@@ -13,13 +12,6 @@ public class LandShipping implements ShippingMethod {
         this.weight = weight;
     }
 
-    public double getCost() {
-        return cost;
-    }
-
-    public void setCost(double cost) {
-        this.cost = cost;
-    }
 
     public double getDistance() {
         return distance;
@@ -31,42 +23,45 @@ public class LandShipping implements ShippingMethod {
 
     @Override
     public double getBasePrice() {
-        return 10;
+        return 30;
     }
 
     @Override
     public double getBaseWeight() {
-        return 20;
+        return 50;
     }
 
     @Override
     public double getBaseDistance() {
-        return 10;
+        return 100;
     }
 
     @Override
     public double additionalWeightCost(double weight) {
-        if (weight <= 5) {
-            cost += 10;
-        } else if (weight > 5 && weight >= 15) {
-            cost += 15;
-        } else if (weight > 15) {
-            cost += 20;
+        double extraWeight = weight - getBaseWeight();
+        double cost = 0;
+        if (extraWeight <= 25) {
+            cost = extraWeight * 30;
+        } else if (weight <= 50) {
+            cost = (25 * 30) + (extraWeight - 25) * 40;
+        } else if (weight > 50) {
+            cost = (25 * 30) + (50 * 40) + (extraWeight - 50) * 45;
         }
-        return cost * weight;
+        return cost;
 
     }
 
     @Override
     public double additionalDistanceCost(double distance) {
-        double calculateKm = 0;
-        if (distance <= 300) {
-            calculateKm += 20;
-        } else if (distance > 300 && distance >= 700) {
-            calculateKm += 30;
-        } else if (distance > 700) {
-            calculateKm += 35;
+        double extraDistance = distance - getBaseDistance();
+        double cost = 0;
+        if (extraDistance <= 300) {
+            cost = extraDistance * 20;
+        } else if (weight <= 700) {
+            cost = (300 * 20) + (extraDistance - 300) * 30;
+        } else if (weight > 700) {
+            cost = (300 * 20) + (700 * 20) + (extraDistance - 700) * 35;
         }
-        return calculateKm * distance;
+        return cost;
     }
 }
