@@ -12,6 +12,7 @@ public class TitanicRunner {
     public void survivalCountAndPercentage(String filename){
         try(BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
+
             br.readLine();
             while((line = br.readLine()) != null){
                 line.split(",");
