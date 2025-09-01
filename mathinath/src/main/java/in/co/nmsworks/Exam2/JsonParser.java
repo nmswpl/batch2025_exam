@@ -16,21 +16,17 @@ public class JsonParser {
         {
             System.out.println(str[i]);
         }
-        Map<String,Integer> map = new HashMap<>();
-
-
-
 ////        ,\{,\},\:
-//        String Name = "";
-//        int Age;
-//        String Department;
-//        for (int i=0;i<str.length;i++)
-//        {
+        String Name = "";
+        int Age=0;
+        String Department="";
+        for (int i=0;i<str.length;i++)
+        {
 //            System.out.println(str[i]);
-////            Name = str[];
-////          Age = Integer.parseInt(str[]);
-////            Department = str[];
-//        }
-//        System.out.println("Name  "+Name);
+//            Name = str[];
+//          Age = Integer.parseInt(str[]);
+//            Department = str[];
+        }
+        System.out.println("Name  "+Name);
     }
 }
