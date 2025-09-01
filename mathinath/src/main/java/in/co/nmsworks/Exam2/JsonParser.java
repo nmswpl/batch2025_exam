@@ -1,5 +1,8 @@
 package in.co.nmsworks.Exam2;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class JsonParser {
     public static void main(String[] args) {
         JsonParser jp = new JsonParser();
@@ -8,17 +11,26 @@ public class JsonParser {
     }
 
     private void printParseJson(String json) {
-        String[] str = json.split(",:'\'",4);
-        String Name;
-        int Age;
-        String Department;
+        String[] str = json.split("\\:','",3);
         for (int i=0;i<str.length;i++)
         {
             System.out.println(str[i]);
-//            Name = str[0];
-//          Age = Integer.parseInt(str[1]);
-//            Department = str[2];
         }
-        System.out.println();
+        Map<String,Integer> map = new HashMap<>();
+
+
+
+////        ,\{,\},\:
+//        String Name = "";
+//        int Age;
+//        String Department;
+//        for (int i=0;i<str.length;i++)
+//        {
+//            System.out.println(str[i]);
+////            Name = str[];
+////          Age = Integer.parseInt(str[]);
+////            Department = str[];
+//        }
+//        System.out.println("Name  "+Name);
     }
 }

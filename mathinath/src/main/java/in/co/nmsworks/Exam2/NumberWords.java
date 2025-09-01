@@ -1,6 +1,8 @@
 package in.co.nmsworks.Exam2;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class NumberWords {
@@ -15,8 +17,9 @@ public class NumberWords {
     private void printNumberToWords(int num) {
         if(num>0 && num<=99999)
         {
-//            String word =
-//            System.out.println(word);
+           String str = String.valueOf(num);
+//           String words = str.
+            System.out.println(str);
         }
     }
 }

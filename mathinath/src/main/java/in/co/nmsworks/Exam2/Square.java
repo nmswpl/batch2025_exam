@@ -18,12 +18,14 @@ public class Square {
         {
             for (int k=1;k<=num;k++)
             {
-                for (int j=i;j<=space;j++)
+                if(i==2 && i+k==num-1 )
                 {
                     System.out.print("  ");
                 }
-
-                System.out.print(i);
+                else
+                {
+                    System.out.print(i+" ");
+                }
             }
             System.out.println();
         }
