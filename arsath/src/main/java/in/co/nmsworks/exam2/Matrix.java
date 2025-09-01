@@ -2,6 +2,22 @@ package in.co.nmsworks.exam2;
 
 public class Matrix {
 
+    public static void main(String[] args) {
+        int[][] matrix = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+
+        System.out.println("Original Matrix:");
+        printMatrix(matrix);
+
+        rotateMatrixClockwise(matrix);
+
+        System.out.println("Rotated Matrix:");
+        printMatrix(matrix);
+    }
+
     public static void rotateMatrixClockwise(int[][] matrix) {
         int n = matrix.length;
 
@@ -35,19 +51,4 @@ public class Matrix {
         }
     }
 
-    public static void main(String[] args) {
-        int[][] matrix = {
-                {1, 2, 3},
-                {4, 5, 6},
-                {7, 8, 9}
-        };
-
-        System.out.println("Original Matrix:");
-        printMatrix(matrix);
-
-        rotateMatrixClockwise(matrix);
-
-        System.out.println("Rotated Matrix:");
-        printMatrix(matrix);
-    }
 }
