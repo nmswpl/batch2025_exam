@@ -14,12 +14,10 @@ public class StringParse {
     private void parseTheString(String input) {
         StringBuilder name = new StringBuilder();
 
-        String[] words = input.split(" ");
+        String[] words = input.split(":");
 
         for (int i = 0; i < words.length; i++) {
-            if(words[i].contains("name")){
                 name.append(words[i]);
-            }
         }
 
         System.out.println(name);
