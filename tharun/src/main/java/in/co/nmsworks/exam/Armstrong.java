@@ -4,24 +4,39 @@ public class Armstrong {
     public static void main(String[] args) {
         Armstrong armstrong = new Armstrong();
         int number = 10;
-        if (armstrong.isisArmstrongNumber(number)){
-            System.out.println(number+" is  Armstrong");
-        }
-        else{
-            System.out.println(number+" is  not Armstrong");
+        int count = 0;
+        for (int i = number; i < 100000; i++) {
 
+            boolean check = armstrong.isArmstrongNumber(i);
+
+            if (check){
+                System.out.println(i+" is  Armstrong");
+                count ++ ;
+            }
+            if (count == 7){
+                break;
+            }
         }
     }
 
-    private boolean isisArmstrongNumber(int number) {
+    private boolean isArmstrongNumber(int number) {
+        int baseNumber = number;
         int sum = 0;
+        int power =2;
+        if (number > 100 && number < 1000){
+            power = 3;
+        } else if (number > 1000 && number < 10000) {
+            power = 4;
+        } else if (number > 100000 && number < 100000) {
+            power = 5;
+        }
 
         while (number > 0){
-            sum += Math.pow((number % 10),2);
-            System.out.println(sum);
+            int base = number % 10;
+            sum += Math.pow(base,power);
             number = number /10;
         }
-        if (number == sum){
+        if (baseNumber == sum){
             return true;
         }
         return false ;

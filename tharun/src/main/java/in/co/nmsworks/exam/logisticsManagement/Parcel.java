@@ -1,8 +1,11 @@
 package in.co.nmsworks.exam.logisticsManagement;
 
+import java.util.Arrays;
+
 public class Parcel {
     private int weight;
     private int distance;
+    private int [] latLongTo;
 
     public Parcel(int weight, int distance) {
         this.weight = weight;
@@ -25,11 +28,20 @@ public class Parcel {
         this.distance = distance;
     }
 
+    public int[] getLatLongTo() {
+        return latLongTo;
+    }
+
+    public void setLatLongTo(int[] latLongTo) {
+        this.latLongTo = latLongTo;
+    }
+
     @Override
     public String toString() {
         return "Parcel{" +
                 "weight=" + weight +
                 ", distance=" + distance +
+                ", latLongTo=" + Arrays.toString(latLongTo) +
                 '}';
     }
 }

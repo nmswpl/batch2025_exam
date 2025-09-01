@@ -29,10 +29,10 @@ public class CompressString {
         int count = 1;
         for (int i = 0; i < charArray.length-1;i++) {
 
-            if (charArray[i] == charArray[i+1]){
+            if (i + 1 < input.length() && charArray[i] == charArray[i+1]){
                 count++;
             }
-            if (charArray[i] != charArray[i+1]){
+            if (i + 1 < input.length() && charArray[i] != charArray[i+1] ){
                 result += String.valueOf(count) + charArray[i];
                 count = 1;
             }
