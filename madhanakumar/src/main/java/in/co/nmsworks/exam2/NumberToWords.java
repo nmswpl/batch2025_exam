@@ -1,14 +1,16 @@
 package in.co.nmsworks.exam2;
 
+import java.util.Scanner;
+
 public class NumberToWords {
     String[] belowTwenty = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
     String[] tens = {"", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
 
     public static void main(String[] args) {
-        int[] givenNumbers = {14, 1234, 50005, 99999, 0};
-        for (int num : givenNumbers) {
-            System.out.println(num + " => " + convert(num));
-        }
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the number : ");
+        int num = scan.nextInt();
+        System.out.println(num + " => " + convert(num));
     }
     public static String convert(int num) {
         if (num == 0)
