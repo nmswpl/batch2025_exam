@@ -1,4 +1,4 @@
-package in.co.nmsworks;
+/*package in.co.nmsworks;
 
 public class ShippingCostCalculator
 {
@@ -23,3 +23,6 @@ public class ShippingCostCalculator
 
     }
 }
+
+
+ */

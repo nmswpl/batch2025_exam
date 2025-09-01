@@ -13,7 +13,7 @@ public class LoginCredentials
     public static void main(String[] args) throws SQLException{
         LoginCredentials lc=  new LoginCredentials();
         List<UserDetails> userset = new ArrayList<>();
-        try(Connection con = DriverManager.getConnection("/home/nms-training/git/batch2025_exam/sheik/src/main/resources/user_details","nms-training" , "nms-training")) {
+        try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/training","nms-training" , "nms-training")) {
             PreparedStatement ps = con.prepareStatement("select * from user_details");
 
             ResultSet rs= ps.executeQuery();

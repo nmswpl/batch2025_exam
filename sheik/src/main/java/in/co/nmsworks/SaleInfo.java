@@ -14,18 +14,21 @@ public class SaleInfo
         try(BufferedReader br = new BufferedReader(new FileReader(file)))
         {
             List<String> categories = new ArrayList<>();
-            for (String category : categories) {
-                averagePriceOfCat(category);
-            }
+
             String ln ;
+            br.readLine();
             while((ln=br.readLine())!=null){
                 String[] arr = ln.split(",");
                 categories.add(arr[2]);
+            }
+            for (String category : categories) {
+                averagePriceOfCat(category);
             }
         }
 
     }
     public static void averagePriceOfCat(String cat){
+        System.out.println(cat);
         String file = "/home/nms-training/git/batch2025_exam/sheik/src/main/resources/SALES_DATA.csv";
         try(BufferedReader br = new BufferedReader(new FileReader(file)))
         {
@@ -38,6 +41,7 @@ public class SaleInfo
             while((line=br.readLine())!=null){
                 String[] arr = line.split(",");
                 if(arr[2].equals(cat)){
+
                     sum = sum + Integer.parseInt(arr[3]);
                     count++;
                 }
