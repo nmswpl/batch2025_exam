@@ -2,12 +2,6 @@ package in.co.nmsworks.test2;
 
 public class Passenger
 {
-    /*Given a CSV File titanic.csv, Create Passenger Object.
-    Print Class wise survived people Count and Survival percentage
-    Survival % Formula : (No of people survived in class X / Total number of people in class X) *100.
-    Get Input as Age from Console. Print the passenger name, age, gender where the passenger's age is less
-    than or equal to the given age*/
-
     private int survived;
     private int pClass;
     private String name;
