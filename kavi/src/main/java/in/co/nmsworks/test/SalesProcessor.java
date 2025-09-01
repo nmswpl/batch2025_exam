@@ -59,19 +59,19 @@ public class SalesProcessor {
         Map<String, List<Double>> map = new HashMap<>();
 
         for (SaleInfo s : sales) {
-            //map.computeIfAbsent(s.category);
+           // map.computeIfAbsent(s.category);
 
         }
-            System.out.println("Average Price by Category:");
-            for (String cat : map.keySet()) {
-                List<Double> prices = map.get(cat);
-              // double avg = prices.stream().findAny().orElse(0);
-               //System.out.println(avg);
+        System.out.println("Average Price by Category:");
+        for (String cat : map.keySet()) {
+            List<Double> prices = map.get(cat);
+            //double avg = prices.stream().findAny().orElse(0);
+            //System.out.println(avg);
 
-            }
+        }
 
 
-        //public static void printHighestSoldProductPerMonth(List < SaleInfo > sales) {
+        //public static void printHighestSoldProductPerMonth (List < SaleInfo > sales) {
             Map<String, SaleInfo> best = new HashMap<>();
 
             for (SaleInfo s : sales) {
@@ -87,7 +87,7 @@ public class SalesProcessor {
             }
         }
 
-        public static void main (String[] args){
+        public static void main (String[]args){
             String filePath = "/home/nms-training/git/batch2025_exam/kavi/src/main/resources/SALES_DATA.csv";
             List<SaleInfo> sales = readSalesData(filePath);
 
@@ -99,3 +99,5 @@ public class SalesProcessor {
             }
         }
     }
+
+//}

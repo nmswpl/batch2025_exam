@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><h3>Contact Form</h3></title>
+
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          padding: 20px;
+        }
+
+        form {
+          width: 350px;
+          margin: auto;
+        }
+
+        .row {
+          display: flex;
+          gap: 10px;
+        }
+
+        .row .form-group {
+          flex: 1;
+        }
+
+        label {
+          display: block;
+          margin-top: 10px;
+        }
+
+        input, select, textarea {
+          width: 100%;
+          padding: 5px;
+          margin-top: 5px;
+        }
+
+        .buttons {
+          margin-top: 15px;
+          display: flex;
+          justify-content: space-between;
+        }
+
+        button {
+          padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Contact Form</h2>
+<form>
+    <div class="row">
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="firstname" required>
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="lastname" required>
+        </div>
+    </div>
+
+    <label>Email</label>
+    <input type="email" placeholder="kavi@example.com" required>
+
+    <label>Phone</label>
+    <input type="tel" placeholder="+91 xxxxxxxxxx" required>
+
+    <label>Subject</label>
+    <select required>
+        <option value="">select a subject</option>
+        <option>Maths</option>
+        <option>Science</option>
+        <option>English</option>
+    </select>
+
+    <label>Message</label>
+    <textarea placeholder="Type your message" required></textarea>
+
+    <div class="buttons">
+        <button type="reset">Cancel</button>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+</body>
+</html>
