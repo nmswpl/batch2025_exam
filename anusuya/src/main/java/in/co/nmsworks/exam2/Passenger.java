@@ -33,7 +33,7 @@ public class Passenger {
     public void setSurvived(int survived) {
         this.survived = survived;
     }
-    
+
 
     public String getName() {
         return name;
