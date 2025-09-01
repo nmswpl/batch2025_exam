@@ -31,13 +31,14 @@ public class ParkingLot {
         return false;
     }
 
-
-
     public static void main(String[] args) {
         ParkingLot parkingLot = new ParkingLot();
         parkingLot.addParkingSpot(1, Type.BIKE);
         parkingLot.addParkingSpot(2, Type.CAR);
         Vehicle bike = new Vehicle("BIKE123", Type.BIKE);
         Vehicle car = new Vehicle("CAR456", Type.CAR);
+        System.out.println("Parking BIKE123: " + (parkingLot.parkVehicle(bike) ? "Success" : "Failed"));
+        System.out.println("Parking CAR456: " + (parkingLot.parkVehicle(car) ? "Success" : "Failed"));
+
     }
 }
