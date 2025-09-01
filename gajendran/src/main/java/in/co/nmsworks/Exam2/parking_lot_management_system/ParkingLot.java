@@ -34,16 +34,10 @@ public class ParkingLot
 
     private void availableParking(Vehicle i)
     {
-        System.out.println("Available for ");
+        System.out.println("Available for "+i.getVehicle());
         for (ParkingSpot parkingSpot : parkingSpots)
         {
-            parkingSpot.printAvailable(ParkingSpot.vehicleType.CAR);
-        }
-
-        System.out.println("Available for BIKE");
-        for (ParkingSpot parkingSpot : parkingSpots)
-        {
-            parkingSpot.printAvailable(ParkingSpot.vehicleType.BIKE);
+            parkingSpot.printAvailable(ParkingSpot.vehicleType.valueOf(i.getVehicle()));
         }
     }
 
