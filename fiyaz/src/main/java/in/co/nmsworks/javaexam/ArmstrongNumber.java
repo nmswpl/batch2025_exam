@@ -11,7 +11,7 @@ public class ArmstrongNumber {
     public void isArmstrongNumber(int num) {
 
 
-        for (int i = 100; i < num; i++) {
+        for (int i = 10; i < num; i++) {
 
             int count = findCount(i);
             int temp = 0;
@@ -26,7 +26,7 @@ public class ArmstrongNumber {
                 j++;
             }
 
-            if (total==i) {
+            if (total == i) {
                 System.out.println(i);
             }
 
@@ -35,13 +35,47 @@ public class ArmstrongNumber {
 
     private int findCount(int num) {
         int count = 0;
-        int i =0;
+        int i = 0;
         while (num > 0) {
-            num = num/10;
+            num = num / 10;
             count = count + 1;
             i++;
         }
         return count;
     }
-
 }
+
+
+
+
+
+//
+//public class ArmstrongNumber {
+//
+//    public static void main(String[] args) {
+//        int count = 0;
+//        int num = 10;
+//
+//        while (count < 7) {
+//            if (isArmstrongNumber(num)) {
+//                System.out.println(num);
+//                count++;
+//            }
+//            num++;
+//        }
+//    }
+//
+//    public static boolean isArmstrongNumber(int num) {
+//        int original = num;
+//        int digits = String.valueOf(num).length();
+//        int sum = 0;
+//
+//        while (num > 0) {
+//            int d = num % 10;
+//            sum += Math.pow(d, digits);
+//            num /= 10;
+//        }
+//        return sum == original;
+//    }
+//}
+//

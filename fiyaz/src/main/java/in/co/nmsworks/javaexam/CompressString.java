@@ -34,3 +34,28 @@ public class CompressString {
 
     }
 }
+
+
+//public class CompressString {
+//    public static void main(String[] args) {
+//        System.out.println(compressString("aaabbca"));  // 3a2b1c1a
+//        System.out.println(compressString("abc"));      // 1a1b1c
+//    }
+//
+//    private static String compressString(String input) {
+//        if (input == null || input.isEmpty()) return "";
+//
+//        StringBuilder sb = new StringBuilder();
+//        int count = 1;
+//
+//        for (int i = 1; i <= input.length(); i++) {
+//            if (i < input.length() && input.charAt(i) == input.charAt(i - 1)) {
+//                count++;
+//            } else {
+//                sb.append(count).append(input.charAt(i - 1));
+//                count = 1;
+//            }
+//        }
+//        return sb.toString();
+//    }
+//}
