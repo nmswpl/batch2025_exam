@@ -3,23 +3,28 @@ package in.co.nmsworks.exam;
 public class ArmstrongNumber {
     public static void main(String[] args) {
         ArmstrongNumber a = new ArmstrongNumber();
-        a.printArmstrongNumber(125);
+        int count = 0;
+        int n = 10;
+        while (count < 7) {
+            if (a.isArmstrongNumber(n)) {
+                System.out.println(n);
+                count++;
+            }
+            n++;
+        }
     }
 
-    public void printArmstrongNumber(int n){
+    public boolean isArmstrongNumber(int n) {
+        int num = n;
         int sum = 0;
-        int sumOfCubes = 0;
-        for(int i = 10; i<=100; i++){
-            int lastDigit = n % 10;
-            sum += lastDigit;
-            sumOfCubes += Math.pow(lastDigit,3);
-            n/=10;
+
+        while (num > 0) {
+            int lastDigit = num % 10;
+            sum += Math.pow(lastDigit, 3);
+            num /= 10;
         }
-        if(sum==sumOfCubes){
-            System.out.println(n + " is a Armstrong Number");
-        }
-        else {
-            System.out.println("Not an ARmsrong Nmber");
-        }
+
+        return sum == n;
     }
 }
+

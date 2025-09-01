@@ -9,24 +9,28 @@ public class StringPattern {
         sp.compressString("aaabbca");
     }
 
-    public void compressString(String s){
-        List<Character> characters = new ArrayList<>();
-        for(Character ch : s.substring(0,s.length()-1).toCharArray()){
-            characters.add(ch);
+    public String compressString(String input){
+        if (input == null || input.isEmpty()) {
+            return "";
         }
-        System.out.println(characters);
+        StringBuilder compressed = new StringBuilder();
+        int n = input.length();
+        int i = 0;
 
-        StringBuilder result = new StringBuilder();
-        Map<Character,Integer> charMap = new HashMap<>();
-
-        for (Character character : characters) {
-                charMap.put(character,charMap.getOrDefault(character,0)+1);
+        while (i < n) {
+            char currentChar = input.charAt(i);
+            int count = 0;
+            int j = i;
+            while (j < n && input.charAt(j) == currentChar) {
+                count++;
+                j++;
+            }
+            compressed.append(count).append(currentChar);
+            i = j;
         }
 
-        for (Map.Entry<Character, Integer> entry : charMap.entrySet()) {
-            result.append(entry.getKey()).append(entry.getValue());
-        }
-        System.out.println(result);
+        System.out.println(compressed);
 
+        return compressed.toString();
     }
 }
