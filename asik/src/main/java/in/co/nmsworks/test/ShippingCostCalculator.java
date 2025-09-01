@@ -21,21 +21,28 @@ public class ShippingCostCalculator
 
     public double calculateTotalCost(ShippingMethod shippingMethod, Parcel parcel)
     {
-            if (shippingMethod instanceof AirShipping)
-            {
-                double surgeAmount = 2.5 * (shippingMethod.getBasePrice() +
-                        shippingMethod.additionalWeightCost(parcel.getWeight()) + shippingMethod.additionalDistanceCost(parcel.getDistance()));
-                return surgeAmount +  shippingMethod.getBasePrice() +
-                        shippingMethod.additionalWeightCost(parcel.getWeight()) + shippingMethod.additionalDistanceCost(parcel.getDistance());
-            }
-            return (shippingMethod.getBasePrice() + shippingMethod.additionalWeightCost(parcel.getWeight()) + shippingMethod.additionalDistanceCost(parcel.getDistance()));
+        double totalCost = shippingMethod.getBasePrice();
+        if (parcel.getWeight() > shippingMethod.getBaseWeight())
+        {
+            totalCost += shippingMethod.additionalWeightCost(parcel.getWeight() - shippingMethod.getBaseWeight());
+        }
+        if (parcel.getDistance() > shippingMethod.getBaseDistance())
+        {
+            totalCost += shippingMethod.additionalDistanceCost(parcel.getDistance() - shippingMethod.getBaseDistance());
+        }
+        if (shippingMethod instanceof AirShipping)
+        {
+            double surgeAmount = 2.5 * totalCost;
+            return surgeAmount + totalCost;
+        }
+        return totalCost;
     }
 
     public void generateQuotation(Parcel parcel)
     {
         System.out.println("Quotation for Parcel (Weight: " + parcel.getWeight() + " kg, Distance: " + parcel.getDistance() + " km) :");
-        System.out.println((calculateTotalCost(new AirShipping(500, 30, 300), parcel)));
-        System.out.println((calculateTotalCost(new SeaShipping(250, 25, 150), parcel)));
-        System.out.println((calculateTotalCost(new LandShipping(200, 15, 150), parcel)));
+        System.out.println("AirShipping : " + (calculateTotalCost(new AirShipping(500, 30, 300), parcel)));
+        System.out.println("SeaShipping : " + (calculateTotalCost(new SeaShipping(250, 25, 150), parcel)));
+        System.out.println("LandShipping : " + (calculateTotalCost(new LandShipping(200, 15, 150), parcel)));
     }
 }

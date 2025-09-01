@@ -6,32 +6,19 @@ public class ArmstrongNumber
     {
         ArmstrongNumber armstrongNumber = new ArmstrongNumber();
 
-        int num = 123;
-
-        boolean isArmstrongNumber = armstrongNumber.checkArmstrongNumber(num);
-
-        if (isArmstrongNumber)
+        for (int i = 1; i <= 10; i++)
         {
-            System.out.println(num + " Is An Armstrong Number");
-        }
-        else
-        {
-            System.out.println(num + " Is Not An Armstrong Number");
-        }
+            boolean isArmstrongNumber = armstrongNumber.checkArmstrongNumber(i);
 
-        num = 9;
-
-        isArmstrongNumber = armstrongNumber.checkArmstrongNumber(num);
-
-        if (isArmstrongNumber)
-        {
-            System.out.println(num + " Is An Armstrong Number");
+            if (isArmstrongNumber)
+            {
+                System.out.println(i + " Is An Armstrong Number");
+            }
+            else
+            {
+                System.out.println(i + " Is Not An Armstrong Number");
+            }
         }
-        else
-        {
-            System.out.println(num + " Is Not An Armstrong Number");
-        }
-
     }
 
     private boolean checkArmstrongNumber(int num)
