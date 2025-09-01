@@ -9,12 +9,15 @@ public class Matrix {
 
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix.length; j++) {
-                rotatedMatrix[i][j] = matrix[(i+ matrix.length)%2][(i+ matrix.length)%2];
+                rotatedMatrix[i][j] = matrix[j][i];
             }
         }
 
         for (int i = 0; i < rotatedMatrix.length; i++) {
-            System.out.println(i);
+            for (int j = 0; j < rotatedMatrix.length ; j++) {
+                System.out.print(rotatedMatrix[i][j]);
+            }
+            System.out.println();
         }
     }
 }
