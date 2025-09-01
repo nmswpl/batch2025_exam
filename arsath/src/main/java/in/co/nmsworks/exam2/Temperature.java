@@ -14,7 +14,7 @@ public class Temperature {
     }
 
     private float convertCelciusToFarenheit(int degreeCelcius) {
-        int farenheit = (int) ((1.8 * degreeCelcius) + 12);
+        float farenheit = (float) ((1.8 * degreeCelcius) + 12);
         System.out.println(farenheit);
         return farenheit;
     }
