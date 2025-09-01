@@ -1,6 +1,6 @@
 package in.co.nmsworks.test;
 
-public class AirShipping extends Parcel implements ShippingMethod{
+public class AirShipping  implements ShippingMethod{
 
     private double basePrice;
 
@@ -15,38 +15,48 @@ public class AirShipping extends Parcel implements ShippingMethod{
 
     @Override
     public double getBaseWeight() {
-        return super.getWeight();
+        return 5;
     }
 
     @Override
     public double getBaseDistance() {
-        return super.getDistance()
+        return 100;
     }
 
     @Override
     public double additionalWeightCost(double weight) {
-        if (weight < 10){
-            return getBaseWeight()+(weight*50);
+        if (weight < getBaseWeight()){
+            return weight;
         }
-        if (weight > 10 && weight < 20){
-            return getBaseWeight()+(weight*60);
-        }
-        if (weight > 20){
-            return  getBaseWeight()+(weight*70);
+        else{
+            if (weight <= 10){
+                return getBaseWeight()+((weight-getBaseWeight())*50);
+            }
+            if (weight > 10 && weight < 20){
+                return getBaseWeight()+((weight-getBaseWeight())*60);
+            }
+            if (weight > 20){
+                return getBaseWeight()+((weight-getBaseWeight())*70);
+            }
         }
         return 0;
     }
 
     @Override
     public double additionalDistanceCost(double distance) {
-        if (distance < 500){
-            return getBaseDistance()+(distance*20);
+        if (distance < getBaseDistance()){
+            return distance;
         }
-        if (distance > 500 && distance < 1000){
-            return getBaseDistance()+(distance*40);
-        }
-        if (distance > 1000){
-            return  getBaseDistance()+(distance*50);
+        else{
+            if (distance < 500){
+                return distance+((distance-getBaseDistance())*20);
+            }
+            if (distance > 500 && distance < 1000){
+                return distance+((distance-getBaseDistance())*40);
+            }
+            if (distance > 1000){
+                return distance+((distance-getBaseDistance())*50);
+            }
         }
         return 0;
     }

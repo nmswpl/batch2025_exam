@@ -1,6 +1,6 @@
 package in.co.nmsworks.test;
 
-public class SeaShipping extends Parcel implements ShippingMethod{
+public class SeaShipping implements ShippingMethod{
 
     private double basePrice;
 
@@ -15,38 +15,48 @@ public class SeaShipping extends Parcel implements ShippingMethod{
 
     @Override
     public double getBaseWeight() {
-        return super.getWeight();
+        return 10;
     }
 
     @Override
     public double getBaseDistance() {
-        return super.getDistance();
+        return 30;
     }
 
     @Override
     public double additionalWeightCost(double weight) {
-        if (weight < 25){
-            return getBaseWeight()+(weight*30);
+        if (weight < getBaseWeight()){
+            return weight;
         }
-        if (weight > 20 && weight < 50){
-            return getBaseWeight()+(weight*40);
-        }
-        if (weight > 50){
-            return  getBaseWeight()+(weight*45);
+        else{
+            if (weight < 25){
+                return getBaseWeight()+((weight-getBaseWeight())*30);
+            }
+            if (weight > 25 && weight < 50){
+                return getBaseWeight()+((weight-getBaseWeight())*40);
+            }
+            if (weight > 50){
+                return getBaseWeight()+((weight-getBaseWeight())*45);
+            }
         }
         return 0;
     }
 
     @Override
     public double additionalDistanceCost(double distance) {
-        if (distance < 100){
-            return getBaseDistance()+(distance*10);
+        if (distance < getBaseDistance()){
+            return distance;
         }
-        if (distance > 100 && distance < 500){
-            return getBaseDistance()+(distance*20);
-        }
-        if (distance > 500){
-            return  getBaseDistance()+(distance*25);
+        else{
+            if (distance < 100){
+                return distance+((distance-getBaseDistance())*10);
+            }
+            if (distance > 100 && distance < 500){
+                return distance+((distance-getBaseDistance())*20);
+            }
+            if (distance > 500){
+                return distance+((distance-getBaseDistance())*25);
+            }
         }
         return 0;
     }
