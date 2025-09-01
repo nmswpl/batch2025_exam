@@ -43,18 +43,12 @@ public class ParkingLot
 
     public static void main(String[] args)
     {
-        System.out.println("aaaaaa");
         ParkingLot parkingLot = new ParkingLot();
 
-        System.out.println("bbbbb");
         parkingLot.addParkingSpot();
-        System.out.println("ccccc");
         parkingLot.addParkingSpot();
-        System.out.println("dddddd");
         parkingLot.availableParking(vehicles.get(0));
-        System.out.println("eeeeeee");
         parkingLot.parkingAVehicle(vehicles.get(2));
-        System.out.println("ffffff");
         parkingLot.freeUpParkingSpot(vehicles.get(2),vehicleParkedOn.get(vehicles.get(2)));
         parkingLot.freeUpParkingSpot(vehicles.get(3),vehicleParkedOn.get(vehicles.get(3)));
 

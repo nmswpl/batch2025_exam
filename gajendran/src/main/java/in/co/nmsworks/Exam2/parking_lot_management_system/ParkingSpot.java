@@ -27,7 +27,6 @@ public class ParkingSpot
 
     public void printAvailable(vehicleType vehicleType)
     {
-        System.out.println("sajhddsa");
         for (Map.Entry<String, available> stringavailableEntry : parkingAvailable.entrySet())
         {
             if (stringavailableEntry.getValue().equals(FREE) && parkingSpot.get(stringavailableEntry.getKey()).equals(vehicleType))
