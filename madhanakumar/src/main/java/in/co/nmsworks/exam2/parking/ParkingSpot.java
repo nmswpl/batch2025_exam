@@ -28,6 +28,10 @@ public class ParkingSpot {
         }
         return false;
     }
+    public void freeSpot() {
+        this.vehicle = null;
+        this.isAvailable = true;
+    }
     public int getSpotNumber() {
         return spotNumber;
     }
