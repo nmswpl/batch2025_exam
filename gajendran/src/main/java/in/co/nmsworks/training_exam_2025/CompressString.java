@@ -1,10 +1,15 @@
 package in.co.nmsworks.training_exam_2025;
 
+import java.util.Scanner;
+
 public class CompressString
 {
 
     private String compressString(String inputString)
     {
+        if (inputString.isEmpty() ){
+            return "Enter a String to Compress";
+        }
         String resultString = "";
         char[] c = inputString.toCharArray();
         char previousString = c[0];
@@ -28,7 +33,9 @@ public class CompressString
 
     public static void main(String[] args)
     {
-        String sampleString = "aaabbca";
+        Scanner scanner = new Scanner(System.in);
+
+        String sampleString = "abaaabbbaa.";
         CompressString compressString = new CompressString();
 
         System.out.println(compressString.compressString(sampleString));

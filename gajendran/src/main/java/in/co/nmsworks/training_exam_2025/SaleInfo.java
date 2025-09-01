@@ -5,6 +5,11 @@ public class SaleInfo
     String sales_id , product_name , category ,sale_date;
     float price ;
     int items_sold ;
+
+    public String getSale_date() {
+        return sale_date;
+    }
+
     static long sum = 0;
 
     public String getProduct_name() {
