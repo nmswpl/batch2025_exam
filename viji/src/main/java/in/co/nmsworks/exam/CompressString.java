@@ -13,25 +13,24 @@ For example:
 public class CompressString {
     public static void main(String[] args) {
         String input = "aaabbca";
-        String answer = compressString(input);
-        System.out.println(answer);
+        System.out.println(compressString(input));
     }
-    private static String compressString(String input){
-       String output = "";
-       Set<String> set = new LinkedHashSet<>();
-       int count ;
-        for(int i =0 ; i<input.length () ; i++){
-            char ch = input.charAt(i);
-            if(input.indexOf(ch)==-1){
-                count = 0;
+
+    private static String compressString(String input) {
+        if (input == null || input.isEmpty()) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        int count = 1;
+        for (int i = 1; i <= input.length(); i++) {
+            if (i < input.length() && input.charAt(i) == input.charAt(i - 1)) {
                 count++;
-                output = output +ch;
-            }
-            else{
-                count++;
+            } else {
+                sb.append(count).append(input.charAt(i - 1));
+                count = 1;
             }
 
         }
-        return output;
+        return sb.toString();
     }
 }

@@ -21,19 +21,21 @@ public class ArmstrongNumber {
 
     public static void main(String[] args) {
 
-        Scanner scan = new Scanner(System.in);
-        int number = scan.nextInt();
-        int isArmstrong = isArmstrongNumber(number);
-        System.out.println(isArmstrong);
-        if(isArmstrong ==  number) {
-            System.out.println("The number is Armstrong number");
+        int number = 10 ;
+        int count = 0;
+        while(count < 7){
+           boolean answer =  isArmstrongNumber(number);
+            if(answer){
+                System.out.println(number + " ");
+                count++;
+            }
+            number++;
         }
-        else{
-            System.out.println("The number not an Armstrong number");
-        }
+
     }
 
-    public static int  isArmstrongNumber(int number){
+    public static boolean  isArmstrongNumber(int number){
+        int original = number ;
         int countOfDigits = String.valueOf(number).length();
         int sum = 0;
             while (number > 0) {
@@ -41,6 +43,10 @@ public class ArmstrongNumber {
                 sum += Math.pow(remainder, countOfDigits);
                 number = number / 10;
             }
-        return sum ;
+       if(original == sum ){
+           return true;
+       }
+       else
+           return false;
     }
 }
