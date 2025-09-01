@@ -32,6 +32,7 @@ public class CSVFile
                }
 
             System.out.println(fetchData);
+            System.out.println(fetchData.size());
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -44,10 +45,11 @@ public class CSVFile
         for (Survied fetchDatum : fetchData)
         {
            total = total + fetchDatum.getSurvived();
+           avg++;
 
         }
         System.out.println("The Total Survival :"+ total);
-        System.out.println("average "+total % avg);
+        System.out.println("average "+(total / fetchData.size())*100);
 
 
     }
