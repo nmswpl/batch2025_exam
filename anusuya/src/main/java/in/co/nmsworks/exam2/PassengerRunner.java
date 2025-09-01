@@ -16,7 +16,7 @@ public class PassengerRunner {
 
         pr.findSurvivalPercentageOfPassengers();
 
-        pr.printPassengerNamesForGivenAge();
+       // pr.printPassengerNamesForGivenAge();
     }
 
     private void findSurvivalPercentageOfPassengers() {
