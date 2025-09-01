@@ -11,12 +11,13 @@ import java.util.List;
 
 public class ReadSalesData {
 
-    public ReadSalesData(int i, String petTrainingClicker, double v, int i1, int i2) {
+    public ReadSalesData() {
     }
+
 
     public List<SalesInformation> readDate(){
 //        String sql="INSERT INTO salesDetails Values(?,?,?,?,?,?)";
-        String sql="Select * from salesDetails";
+        String sql="Select * from salesDetails where id=? groupby category;";
         List<Integer> list=new ArrayList<>();
 
         try(Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/training","nms-training","nms-training");
@@ -24,10 +25,12 @@ public class ReadSalesData {
         {
             try(PreparedStatement preparedStatement= con.prepareStatement(sql);
                 ResultSet rs= preparedStatement.getResultSet()) {
-
+//                Map<String,Integer> avg=new HashMap<>();
                 String line = "";
-                while (br.readLine()!=null){
+                while ((br.readLine())!=null){
                     String[] word=line.split(",");
+                    line.trim();
+
                     int id=rs.getInt(1);
                     String name=rs.getString(2);
                     String categroies=rs.getString(3);
@@ -38,18 +41,17 @@ public class ReadSalesData {
                    list.add(readDate().size());
                 }
 
-
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }        return readDate();
+    }
+
+    public void shoReadDate() {
 
 
-
-        return readDate();
     }
 }

@@ -1,6 +1,12 @@
 package in.co.nmsworks;
 
-import java.util.Objects;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.*;
 
 public class SalesInformation {
     private int sales_id;
@@ -10,7 +16,7 @@ public class SalesInformation {
     private int date;
     private int items_sold;
 
-    public SalesInformation(int sales_id, String productName, String category, int price, int date) {
+    public SalesInformation() {
         this.sales_id = sales_id;
         this.productName = productName;
         this.category = category;
@@ -42,16 +48,18 @@ public class SalesInformation {
         return category;
     }
 
-    public void setCategory(String category) {
+    public String setCategory(String category) {
         this.category = category;
+        return category;
     }
 
     public int getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public int setPrice(int price) {
         this.price = price;
+        return price;
     }
 
     public int getDate() {
@@ -90,12 +98,50 @@ public class SalesInformation {
         System.out.println("CalculateAndPrint : "+ "/n" +"ProdactName : "+productName+"price : "+price);
     }
 
-    public void findAndSalesInfo(int price,int sales_id ){
+    public void findAndSalesInfo(String category,int price ){
+        Map<String,Integer> avg=new HashMap<>();
 
          int avgCalculation = items_sold * price;
+         avg.put(category,price);
         System.out.println("********");
         System.out.println("Average Calculation : "+avgCalculation);
         System.out.println("CalculateAndPrint : "+toString());
+    }
+
+    public List<SalesInformation> showDataTwoRows(List<SalesInformation> salesInformation) {
+//        String sql="INSERT INTO salesDetails Values(?,?,?,?,?,?)";
+        String sql = "Select category,price from salesDetails;";
+        List<Integer> list = new ArrayList<>();
+
+        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/training", "nms-training", "nms-training");
+             BufferedReader br = new BufferedReader(new FileReader("/home/nms-training/git/batch2025_exam/logeswari/src/main/resources/SALES_DATA.csv"))) {
+            try (PreparedStatement preparedStatement = con.prepareStatement(sql);
+                 ResultSet rs = preparedStatement.getResultSet()) {
+//                Map<String,Integer> avg=new HashMap<>();
+                String line = "";
+                while ((br.readLine()) != null) {
+                    String[] word = line.split(",");
+                    line.trim();
+
+                    String category=setCategory(rs.getNString(2));
+                    int price=setPrice(rs.getInt(3));
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (List<SalesInformation>) readDate();
+
+
+    }
+
+    private Map<Object, Object> readDate() {
+
+        return readDate();
     }
 
 
