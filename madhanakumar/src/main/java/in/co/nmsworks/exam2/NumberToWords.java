@@ -10,6 +10,7 @@ public class NumberToWords {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter the number : ");
         int num = scan.nextInt();
+        scan.close();
         System.out.println(num + " => " + convert(num));
     }
     public static String convert(int num) {
