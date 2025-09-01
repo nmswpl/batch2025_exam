@@ -16,8 +16,8 @@ public class Vehicle
         vehicle = vehicleType;
     }
 
-    public vehicleType getVehicle() {
-        return vehicle;
+    public String getVehicle() {
+        return vehicle+"";
     }
 
     public String getLicensePlate() {

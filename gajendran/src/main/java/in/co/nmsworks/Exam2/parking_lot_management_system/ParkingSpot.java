@@ -18,7 +18,7 @@ public class ParkingSpot
      Map<String,vehicleType> parkingSpot = new HashMap<>();
     Map <String, available> parkingAvailable = new HashMap<>();
 
-    public ParkingSpot(String sport,vehicleType typeOfVehicle)
+    public void addSport(String sport,vehicleType typeOfVehicle)
     {
 
         parkingAvailable.put(sport, FREE);
@@ -27,6 +27,7 @@ public class ParkingSpot
 
     public void printAvailable(vehicleType vehicleType)
     {
+        System.out.println("sajhddsa");
         for (Map.Entry<String, available> stringavailableEntry : parkingAvailable.entrySet())
         {
             if (stringavailableEntry.getValue().equals(FREE) && parkingSpot.get(stringavailableEntry.getKey()).equals(vehicleType))
@@ -42,6 +43,7 @@ public class ParkingSpot
         {
             if (stringavailableEntry.getValue().equals(FREE) && parkingSpot.get(stringavailableEntry.getKey()).equals(vehicleType))
             {
+                parkingAvailable.replace(stringavailableEntry.getKey(), FULL);
                 return stringavailableEntry.getKey();
             }
         }
@@ -49,9 +51,15 @@ public class ParkingSpot
         return "No Slot Available..";
     }
 
-    public void freeSpot(String spot, vehicleType vehicleType)
+    public boolean freeSpot(String spot, vehicleType vehicleType)
     {
-        parkingAvailable.replace(spot, FREE);
+        if (parkingAvailable.get(spot).equals(vehicleType))
+        {
+            parkingAvailable.replace(spot, FREE);
+            return true;
+        }
+        System.out.println("Invalid Vehicle Type");
+        return false;
     }
 
 }
