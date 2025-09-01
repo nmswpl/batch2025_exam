@@ -14,6 +14,23 @@ public class ParkingLot {
         spots.put(spotNumber, new ParkingSpot(spotNumber, size));
     }
 
+    public ParkingSpot findAvailableSpot(Type vehicleType) {
+        for (ParkingSpot spot : spots.values()) {
+            if (spot.isAvailable() && spot.getSize() == vehicleType) {
+                return spot;
+            }
+        }
+        return null;
+    }
+
+    public boolean parkVehicle(Vehicle vehicle) {
+        ParkingSpot spot = findAvailableSpot(vehicle.getVehicleType());
+        if (spot != null) {
+            return spot.parkVehicle(vehicle);
+        }
+        return false;
+    }
+
 
 
     public static void main(String[] args) {
