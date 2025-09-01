@@ -21,8 +21,8 @@ public class Temperature {
 
     private boolean isCelciusEqualsToFarenheit(int celcius){
         int temp = celcius;
-        float farenheit = convertCelciusToFarenheit(celcius);
-        return temp == farenheit;
+        float farenheit1 = convertCelciusToFarenheit(celcius);
+        return temp == farenheit1;
     }
 
 }
