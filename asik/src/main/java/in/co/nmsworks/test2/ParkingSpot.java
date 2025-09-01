@@ -46,7 +46,7 @@ public class ParkingSpot
 
     public boolean checkIfSpotAvailable(Vehicle vehicle)
     {
-
+        return false;
     }
 
     public void parkVehicle(Vehicle vehicle)
