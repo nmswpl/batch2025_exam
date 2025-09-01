@@ -26,7 +26,7 @@ public class NumberToWords {
         } else if (num < 100) {
             result = tens[num / 10] + " " + belowTwenty[num % 10];
         } else if (num < 1000) {
-            result = belowTwenty[num / 100] + " Hundred " + printNumberToWords(num % 100);
+            result = belowTwenty[num / 100] + " Hundred and " + printNumberToWords(num % 100);
         } else if (num < 100000) {
             result = printNumberToWords(num / 1000) + " Thousand " + printNumberToWords(num % 1000);
         }
