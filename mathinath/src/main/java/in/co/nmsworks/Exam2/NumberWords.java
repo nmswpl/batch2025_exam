@@ -19,7 +19,6 @@ public class NumberWords {
         {
            String str = String.valueOf(num);
 //           String words = str.
-            System.out.println(str);
         }
     }
 }

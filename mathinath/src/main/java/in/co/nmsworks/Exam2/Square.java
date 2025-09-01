@@ -13,15 +13,16 @@ public class Square {
 //        System.out.println("Enter the number :");
 //        int num = sc.nextInt();
         int num = 5;
+        int space = 3;
         for (int i=1;i<=num;i++)
         {
             for (int k=1;k<=num;k++)
             {
-                if((i==2 && i+k==num-1))
+                if ((i==k && (i!=1 && i!=num)) || (i+k==num+1 && (i!=1 && i!=num)) || (i+k==num && i==num-2) || (i+k==num+2 && i==num-1))
                 {
                     System.out.print("  ");
                 }
-                else
+               else
                 {
                     System.out.print(i+" ");
                 }
