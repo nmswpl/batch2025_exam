@@ -11,9 +11,9 @@ public class ShippingCostCalculator
         ShippingMethod ls = new LandShipping();
         ShippingMethod ss = new SeaShipping();
 
-        Parcel pp = new Parcel();
 
-        scc.calculateTotalCost(as,pp);
+
+//        scc.calculateTotalCost(as,pp);
     }
 
 

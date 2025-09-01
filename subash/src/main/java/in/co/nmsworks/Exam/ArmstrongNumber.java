@@ -5,50 +5,42 @@ public class ArmstrongNumber
     public static void main(String[] args)
     {
         ArmstrongNumber asm = new ArmstrongNumber();
-        asm.isArmstrongNumber(7);
+        asm.isArmstrongNumber(10);
 
     }
-    public boolean isArmstrongNumber(int num)
+
+    private void isArmstrongNumber(int num)
     {
-        int count=0;
-        int rem=0;
-        int sum;
-        int temp2,temp1;
+        double sum;
         int noOfIteration=0;
-        for(int i=877;;i++)
+        for(int i=10;;i++)
         {
-            sum=1;
-
-            temp1 = i;
-            temp2=i;
-
-            while(i>0)
-            {
-                rem = i % 10;
-                i= i / 10;
-                count++;
-            }
-            int rem1=0;
+            sum=0;
+            int count=0;
+            int temp1=i;
+            int temp2=i;
             while(temp1>0)
             {
-                rem1 = temp1%10;
-                for (int j = 0; j <=count; j++)
-                {
-                    sum=sum*(rem1*rem1);
-                }
-
+                int rem=temp1%10;
+                count++;
                 temp1=temp1/10;
-                System.out.println(temp1);
             }
-
-            if(sum==temp2)
+            while(temp2>0)
             {
-                System.out.println(temp2);
+                int rem1=temp2%10;
+                sum=sum+Math.pow(rem1,count);
+                temp2=temp2/10;
             }
-            noOfIteration++;
+            if(sum==i)
+            {
+                noOfIteration++;
+                System.out.println(i);
+            }
             if(noOfIteration==num)
                 break;
         }
-        return true;
+
     }
+
 }
+

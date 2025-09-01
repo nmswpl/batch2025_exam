@@ -4,17 +4,33 @@ public class CompressString
 {
     public static void main(String[] args) {
         CompressString cs = new CompressString();
-        cs.compressString("aaabbca");
+
+        System.out.println(cs.compressString("aaabbca"));
     }
     private String compressString(String input)
     {
-        String count="";
 
-        for(int i=0;i<input.length();i++)
+        if(input==null || input.isEmpty())
         {
+            return "";
+        }
+        String merge="";
+        int count=1;
+        char[] charArray = input.toCharArray();
+        for(int i=1;i<charArray.length;i++)
+        {
+           if(charArray[i-1]==charArray[i])
+           {
+               count++;
+           }
+           else
+           {
+               merge=merge+count+charArray[i-1];
+               count=1;
+           }
 
         }
-
-        return count;
+        merge=merge+count+charArray[charArray.length-1];
+        return merge;
     }
 }

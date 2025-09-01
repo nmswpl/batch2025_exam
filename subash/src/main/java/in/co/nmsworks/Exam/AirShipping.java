@@ -34,7 +34,8 @@ public class AirShipping implements ShippingMethod{
 
             if(balanceWeight>20)
             {
-//                balanceWeight*balanceWeight;
+                additionalCost=60;
+//                int
             }
         }
         return 0;
