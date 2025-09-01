@@ -18,13 +18,11 @@ public class ArmstrongNumber {
             count++;
             temp = temp /10;
         }
-
         while (i > 0){
             num = i % 10;
             sum = (int) (sum + Math.pow(num,count));
             i = i / 10;
         }
-
         if(res == sum){
             System.out.println(res+" is an Armstrong Number..");
             return true;
