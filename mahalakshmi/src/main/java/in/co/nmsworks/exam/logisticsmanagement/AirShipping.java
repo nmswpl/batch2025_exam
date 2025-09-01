@@ -23,7 +23,7 @@ public class AirShipping implements ShippingMethod {
         if(additionalWeight < 10) {
             return additionalWeight*50;
         }
-        else if((additionalWeight <= 20) && (additionalWeight >= 10) {
+        else if((additionalWeight <= 20) && (additionalWeight >= 10)) {
             return additionalWeight * 60;
         }
         else {
